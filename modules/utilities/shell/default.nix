@@ -25,5 +25,10 @@ in
 
   # Load it's configuration
   xdg.configFile."starship.toml".source = link "starship.toml";
+
+  # Load the language server
+  home.packages = with pkgs; [
+    bash-language-server
+  ];
 }
 

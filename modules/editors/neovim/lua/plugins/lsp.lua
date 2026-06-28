@@ -20,25 +20,6 @@ return {
             "williamboman/mason-lspconfig.nvim",
         },
         config = function()
-            -- Mason automatically handles language support
-            -- We will use it for everything except freaking julia
-            require("mason").setup({
-                ui = { border = "rounded" },
-            })
-
-            require("mason-lspconfig").setup({
-                ensure_installed = {
-                    "lua_ls",
-                    "pyright",
-                    "bashls",
-                    "clangd",
-                    "html",
-                    "cssls",
-                },
-                automatic_installation = true,
-            })
-
-            vim.lsp.enable("texlab")
 
             -- Add some nice keybinds 
             vim.api.nvim_create_autocmd("LspAttach", {
@@ -95,16 +76,16 @@ return {
                 },
             })
 
-
             vim.lsp.enable({
+                "texlab",
                 "lua_ls",
                 "pyright",
-                "bashls",
-                "clangd",
                 "html",
                 "cssls",
-                "texlab",
-                "julials",   -- manual, juliaup managed
+                "clangd",
+                "bashls",
+                "nixd",
+                "julials",
             })
         end,
     },

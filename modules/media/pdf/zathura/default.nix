@@ -11,7 +11,7 @@
       highlight-color           = "rgba(168, 234, 237,0.3)";
 
       synctex                   = true;
-      synctex-editor-command    = "nvim --headless -c \"VimtexInverseSearch %{line}:%{column} '%{input}'\"";
+      synctex-editor-command    = "nvim --headless -c \\\"VimtexInverseSearch %{line}:%{column} '%{input}'\\\"";
     };
 
     mappings = {

@@ -11,11 +11,23 @@
     ../../modules/utilities/shell
     ../../modules/utilities/hyprutils
     ../../modules/utilities/nnn
+
     ../../modules/editors/neovim
+
     ../../modules/browsers/qutebrowser
+
     ../../modules/media/pdf/zathura
     ../../modules/media/img/swayimg
+
     ../../modules/math/latex
+
+    ../../modules/languages/c
+    ../../modules/languages/lua
+    ../../modules/languages/python
+    ../../modules/languages/nix
+    ../../modules/languages/web
+    ../../modules/languages/nix
+    ../../modules/languages/julia
   ];
 }
 
