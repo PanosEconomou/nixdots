@@ -1,0 +1,7 @@
+{ ... }:
+{
+  programs.swayimg = {
+    enable = true;
+  };
+}
+
