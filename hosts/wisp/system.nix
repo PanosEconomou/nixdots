@@ -6,6 +6,7 @@
     ../../modules/system/hardware/keyd
     ../../modules/system/utilities/fonts
     ../../modules/system/utilities/upower
+    ../../modules/system/utilities/cursors/google_dot
   ];
 }
 

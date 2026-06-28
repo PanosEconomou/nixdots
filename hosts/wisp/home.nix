@@ -10,6 +10,7 @@
     ../../modules/utilities/kitty
     ../../modules/utilities/shell
     ../../modules/utilities/hyprutils
+    ../../modules/utilities/nnn
     ../../modules/editors/neovim
     ../../modules/browsers/qutebrowser
     ../../modules/media/pdf/zathura

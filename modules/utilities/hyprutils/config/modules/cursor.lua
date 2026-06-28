@@ -6,7 +6,9 @@ local defaults  = require("modules.defaults")
 
 -- Set up the cursor via environment variables
 env("HYPRCURSOR_THEME", defaults.cursorTheme)
+env("XCURSOR_THEME",    defaults.cursorTheme)
 env("HYPRCURSOR_SIZE",  defaults.cursorSize)
+env("XCURSOR_SIZE",     defaults.cursorSize)
 
 hl.on("hyprland.start", function()
     exec("hyprctl setcursor "..defaults.cursorTheme.." "..defaults.cursorSize)

@@ -11,6 +11,9 @@ in
       if [ -f $HOME/.bash_aliases ]; then
           source $HOME/.bash_aliases
       fi 
+
+      # If you can find the nnn config load it too
+      [ -f "$HOME/.config/nnn/nnn.sh" ] && . "$HOME/.config/nnn/nnn.sh"
     '';
   };
 
