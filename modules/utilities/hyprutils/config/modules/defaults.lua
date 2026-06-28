@@ -16,7 +16,7 @@ default.bar             = "pkill waybar || waybar"
 default.printscreen     = 'grim -g "$(slurp -w 0)"'
 default.latexclip       = "~/.config/hypr/scripts/latexclip.sh"
 default.sunset          = require("scripts.sunset")
-default.cursorTheme     = "GoogleDot-Black"
-default.cursorSize      = "24"
+default.cursorTheme     = "GoogleDot-White"
+default.cursorSize      = "20"
 
 return default
