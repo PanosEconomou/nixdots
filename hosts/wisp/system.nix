@@ -5,6 +5,7 @@
     ../../modules/system/display_manager/sddm
     ../../modules/system/hardware/keyd
     ../../modules/system/utilities/fonts
+    ../../modules/system/utilities/upower
   ];
 }
 
