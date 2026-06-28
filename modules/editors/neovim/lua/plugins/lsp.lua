@@ -34,10 +34,11 @@ return {
                     "clangd",
                     "html",
                     "cssls",
-                    "texlab",
                 },
                 automatic_installation = true,
             })
+
+            vim.lsp.enable("texlab")
 
             -- Add some nice keybinds 
             vim.api.nvim_create_autocmd("LspAttach", {

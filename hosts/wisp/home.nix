@@ -15,6 +15,7 @@
     ../../modules/browsers/qutebrowser
     ../../modules/media/pdf/zathura
     ../../modules/media/img/swayimg
+    ../../modules/math/latex
   ];
 }
 
