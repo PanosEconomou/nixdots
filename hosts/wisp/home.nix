@@ -12,6 +12,7 @@
     ../../modules/utilities/hyprutils
     ../../modules/editors/neovim
     ../../modules/browsers/qutebrowser
+    ../../modules/pdf/zathura
   ];
 }
 
