@@ -11,6 +11,7 @@
     ../../modules/utilities/shell
     ../../modules/utilities/hyprutils
     ../../modules/utilities/nnn
+    ../../modules/utilities/quickshell
 
     ../../modules/editors/neovim
 

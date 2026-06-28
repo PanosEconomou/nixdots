@@ -8,7 +8,7 @@ local indent = augroup("filetype_indent", { clear = true })
 
 autocmd("FileType", {
     group       = indent,
-    pattern     = { "html", "css", "javascript", "json", "yaml", "tex" },
+    pattern     = { "html", "css", "javascript", "json", "yaml", "tex", "nix", "qml" },
     callback    = function()
         vim.opt_local.tabstop       = 2
         vim.opt_local.shiftwidth    = 2

@@ -86,6 +86,7 @@ return {
                 "bashls",
                 "nixd",
                 "julials",
+                "qmlls",
             })
         end,
     },
