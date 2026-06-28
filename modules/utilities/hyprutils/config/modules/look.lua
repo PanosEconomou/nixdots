@@ -1,0 +1,75 @@
+-- Customize the look and feel
+local config    = hl.config
+local rule      = hl.layer_rule
+
+config({
+    general = {
+        gaps_in             = 4,
+        gaps_out            = 8,
+        border_size         = 0,
+        col = {
+            active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
+            inactive_border = "rgba(59595955)",
+        },
+
+        -- Set to true enable resizing windows by clicking and dragging on borders and gaps
+        resize_on_border    = false,
+
+        -- See https://wiki.hyprland.org/Configuring/Tearing/ 
+        allow_tearing       = false,
+        layout              = "dwindle",
+    },
+
+    dwindle = {
+        preserve_split      = true,
+    },
+
+    decoration = {
+        -- Rounding
+        rounding            = 10,
+        rounding_power      = 2,
+
+        -- Transparency
+        active_opacity      = 1.0,
+        inactive_opacity    = 0.95,
+        dim_inactive        = true,
+        dim_strength        = 0.01,
+
+        -- Blur
+        blur  = {
+            enabled         = true,
+            size            = 5,
+            passes          = 4,
+            vibrancy        = 0.1696,
+        },
+
+        -- Glow
+        glow = {
+            enabled         = false,
+            range           = 5,
+            render_power    = 3,
+            color           = "rgba(3dd8ffaa)",
+        },
+
+        -- Shadow
+        shadow = {
+            enabled         = true,
+            range           = 10,
+            render_power    = 6,
+            offset          = {0, 0},
+            scale           = 1.0,
+        },
+    },
+
+    misc = {
+        force_default_wallpaper = 0,
+        disable_hyprland_logo   = true,
+        disable_splash_rendering= true,
+    },
+})
+
+rule({
+    match           = { namespace = "notifications" },
+    blur            = true,
+    ignore_alpha    = 0.0,
+})

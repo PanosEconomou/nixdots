@@ -1,0 +1,17 @@
+{ ... }:
+{
+  home.username = "pano";
+  home.homeDirectory = "/home/pano";
+  home.stateVersion = "26.05";
+  programs.home-manager.enable = true;
+
+  imports = [
+    ../../modules/utilities/git
+    ../../modules/utilities/kitty
+    ../../modules/utilities/shell
+    ../../modules/utilities/hyprutils
+    ../../modules/editors/neovim
+    ../../modules/browsers/qutebrowser
+  ];
+}
+
