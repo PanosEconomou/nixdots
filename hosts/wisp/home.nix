@@ -13,8 +13,10 @@
     ../../modules/utilities/nnn
     ../../modules/utilities/quickshell
     ../../modules/utilities/btop
+    ../../modules/utilities/wofi
 
     ../../modules/editors/neovim
+    ../../modules/editors/marktext
 
     ../../modules/browsers/qutebrowser
 
