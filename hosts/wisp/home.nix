@@ -14,6 +14,7 @@
     ../../modules/utilities/quickshell
     ../../modules/utilities/btop
     ../../modules/utilities/wofi
+    ../../modules/utilities/cursors/google-dot
 
     ../../modules/editors/neovim
     ../../modules/editors/marktext
