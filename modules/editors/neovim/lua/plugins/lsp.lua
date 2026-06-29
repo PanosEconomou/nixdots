@@ -76,6 +76,12 @@ return {
                 },
             })
 
+            vim.lsp.config("qmlls", {
+                on_attach = function(client, bufnr)
+                    client.server_capabilities.semanticTokensProvider = nil
+                end,
+            })
+
             vim.lsp.enable({
                 "texlab",
                 "lua_ls",

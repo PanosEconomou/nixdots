@@ -1,0 +1,139 @@
+import QtQuick 
+
+Rectangle {
+  id: bar
+  
+  // Define properties that can be edited from the outside
+  width:                          40
+  radius:                         width/2
+  color:                          "#ffffff"
+  property int percent:           0
+  property color fillColor:       "#98c8e0"
+  property real restingX:         13
+  property real restingHeight:    90
+  property real hoverHeight:      110
+  property string glyphicon:      "?"
+  property color regularColor:    "#c0caf5"
+  property color constrastColor:  "#16161e"
+  property string glyphfamily:    "Fira Code"
+  property int glyphweight:       600
+  property int pixelsize:         18
+  property int textsize:          16
+  property string unitsymbol:     "%"
+
+  // Entrance Animation
+  x: restingX
+  NumberAnimation {
+    target: bar
+    property: "x"
+    from: -bar.width
+    to: bar.restingX
+    duration: 500
+    easing.type: Easing.OutBack
+    running: true;
+  }
+
+  // Detect Hover
+  MouseArea {
+    id: hover
+    anchors.fill: parent
+    hoverEnabled: true
+  }
+
+  // Hover Animation
+  height: hover.containsMouse ? hoverHeight : restingHeight
+  Behavior on height {
+    NumberAnimation {
+      duration: 350
+      easing.type: Easing.OutCubic
+    }
+  }
+
+  // Rectangle that fills this
+  Rectangle {
+    id:fill
+
+    // Place this from the bottom
+    anchors.bottom:           parent.bottom
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    // Dynamically update the fill based on the percent attribute
+    property real fillFraction: Math.max(0, Math.min(bar.percent, 100))/100
+    height: 0.5 * bar.width + (bar.height - 0.5 * bar.width) * fillFraction
+    width: Math.min(bar.width, height)
+    radius: width/2
+    color: bar.fillColor
+
+    // Animations
+    Behavior on color {
+      ColorAnimation {
+        duration: 400
+      }
+    }
+
+    Behavior on fillFraction {
+      NumberAnimation {
+        duration: 400
+        easing.type: Easing.OutCubic
+      }
+    }
+  }
+
+  // Glyph Rendering 
+  Item {
+    id: glyph
+    anchors.fill: parent
+
+    // Properties of the glyph 
+
+    // single source of truth so both copies stay pixel-identical
+    property string content:  hover.containsMouse ? (bar.percent + bar.unitsymbol) : bar.glyphicon
+    property int pixelSize:   hover.containsMouse ? bar.textsize : bar.pixelsize
+    Behavior on pixelSize { 
+      NumberAnimation { 
+        duration: 150 
+      } 
+    }
+
+    // the split line = top edge of the fill, in this item's coordinates
+    property real splitY: fill.y
+
+    // copy shown over the EMPTY part (above the fill line)
+    Item {
+      anchors.top:  parent.top 
+      anchors.left: parent.left
+      width: parent.width
+      height: Math.max(0, glyph.splitY)
+      clip: true
+      Text {
+        width: glyph.width; height: glyph.height
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        text: glyph.content
+        font.family: bar.glyphfamily
+        font.weight: bar.glyphweight 
+        font.pixelSize: glyph.pixelSize
+        color: bar.regularColor
+      }
+    }
+
+    // copy shown over the FILLED part (below the fill line)
+    Item {
+      anchors.left: parent.left
+      y: glyph.splitY
+      width: parent.width
+      height: Math.max(0, parent.height - glyph.splitY)
+      clip: true
+      Text {
+        width: glyph.width; height: glyph.height
+        y: -glyph.splitY                  // pull back up so it lines up with the top copy
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        text: glyph.content
+        font.family: bar.glyphfamily
+        font.weight: bar.glyphweight 
+        font.pixelSize: glyph.pixelSize
+        color: bar.constrastColor
+      }
+    }
+  }}

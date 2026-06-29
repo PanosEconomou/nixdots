@@ -3,15 +3,16 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build   = ":TSUpdate",                        -- update parsers when plugin updates
+        branch  = "master",
         config  = function()
-            require("nvim-treesitter.config").setup({
+            require("nvim-treesitter.configs").setup({
                 -- Prarses 
                 ensure_installed = {
                     -- Programming Languates
                     "c", "cpp", "python", "julia", "javascript", "typescript",
 
                     -- Scripting
-                    "bash", "lua",
+                    "bash", "lua", "qmljs",
 
                     -- Data
                     "json", "yaml", "toml",
@@ -20,7 +21,7 @@ return {
                     "html", "css",
 
                     -- Docs
-                    "markdown", "markdown_inline", "latex",
+                    "markdown", "markdown_inline",
 
                     -- Nvim
                     "vim", "vimdoc",
@@ -32,7 +33,7 @@ return {
                     -- latex needs both treesitter and vim regex
                     -- because vimtex relies on the vim regex highlighting
                 },
-                
+
                 indent = {
                     enable = true,
                 },
