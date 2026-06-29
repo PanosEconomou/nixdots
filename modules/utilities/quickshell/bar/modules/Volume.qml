@@ -9,8 +9,6 @@ Rectangle {
   property int percent: 0
   property bool muted: false
 
-  property color bgColor: "#1a1b26"
-
   readonly property color fillColor: {
     if (muted) return "#565f89"
     if (percent >= 66) return "#9ece6a"

@@ -36,5 +36,6 @@ PanelWindow {
     }
     Wifi {}
     Volume {}
+    Battery {}
   }
 }
