@@ -29,6 +29,7 @@
     ../../modules/math/latex
     ../../modules/math/4ti2
     ../../modules/math/gap
+    ../../modules/math/mathematica
 
     ../../modules/languages/c
     ../../modules/languages/lua
