@@ -1,0 +1,62 @@
+import Quickshell
+import Quickshell.Hyprland
+import QtQuick
+import QtQuick.Layouts
+
+
+ShellRoot {
+  PanelWindow {
+    anchors {
+      top: true
+      left: true
+      right: true
+    }
+    implicitHeight: 40
+    color: "#040e0d"
+
+    RowLayout {
+      anchors.fill: parent
+      anchors.leftMargin: 14
+      anchors.rightMargin: 14
+      
+      RowLayout {
+        spacing: 7
+        Repeater {
+          model: 9
+
+          Text {
+            property bool isActive: Hyprland.focusedWorkspace?.id === (index + 1)
+            text: index + 1
+            color: isActive ? "#a3d1b0" : "#f5e2c5"
+
+            font {
+              family: "Fira Code"
+              letterSpacing: -1
+              pixelSize: 15
+              weight: isActive ? 700 : 400
+            }
+          }
+        }
+      }
+
+      Item { Layout.fillWidth: true }
+
+      Text {
+        text: Qt.formatDateTime(clock.date, "hh:mm")
+        color: "#f5e2c5"
+
+        font {
+          family: "Fira Code"
+          letterSpacing: -1
+          pixelSize: 15
+          weight: 700
+        }
+      }
+    }
+
+    SystemClock {
+      id: clock
+      precision: SystemClock.Minutes
+    }
+  }
+}

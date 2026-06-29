@@ -5,6 +5,7 @@
 
     ../../modules/system/display_manager/sddm
 
+    ../../modules/system/hardware/bluetooth
     ../../modules/system/hardware/keyd
 
     ../../modules/system/utilities/fonts
