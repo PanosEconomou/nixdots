@@ -27,6 +27,8 @@
     ../../modules/media/img/swayimg
 
     ../../modules/math/latex
+    ../../modules/math/4ti2
+    ../../modules/math/gap
 
     ../../modules/languages/c
     ../../modules/languages/lua

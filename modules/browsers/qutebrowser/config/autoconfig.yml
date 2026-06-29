@@ -55,6 +55,7 @@ settings:
     https://patorjk.com: access-paste
     https://wiki.hypr.land: access-paste
   content.media.audio_capture:
+    https://app.slack.com: true
     https://app.zoom.us: true
     https://chatgpt.com: true
     https://claude.ai: true
@@ -63,6 +64,7 @@ settings:
     https://diagnostics.simplepractice.com: true
     https://video.simplepractice.com: true
   content.media.video_capture:
+    https://app.slack.com: true
     https://app.zoom.us: true
   content.mouse_lock:
     https://www.figma.com: true
