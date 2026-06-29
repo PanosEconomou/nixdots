@@ -1,10 +1,13 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./system.nix
     ];
+
+  # Allow closed source packages
+  nixpkgs.config.allowUnfree = true;
 
   # Home manager setup
   home-manager.useUserPackages = true;
@@ -25,7 +28,7 @@
     Settings.AutoConnect = true;
   };
 
-  # Set your time zone.
+  # Set time zone.
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
 

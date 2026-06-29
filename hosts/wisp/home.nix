@@ -20,6 +20,8 @@
 
     ../../modules/browsers/qutebrowser
 
+    ../../modules/communication/slack
+
     ../../modules/media/pdf/zathura
     ../../modules/media/img/swayimg
 
