@@ -12,6 +12,7 @@
     ../../modules/utilities/hyprutils
     ../../modules/utilities/nnn
     ../../modules/utilities/quickshell
+    ../../modules/utilities/btop
 
     ../../modules/editors/neovim
 

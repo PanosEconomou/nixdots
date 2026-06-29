@@ -26,8 +26,8 @@ config({
 
     decoration = {
         -- Rounding
-        rounding            = 10,
-        rounding_power      = 2,
+        rounding            = 20,
+        rounding_power      = 3,
 
         -- Transparency
         active_opacity      = 1.0,
@@ -40,7 +40,7 @@ config({
             enabled         = true,
             size            = 5,
             passes          = 4,
-            vibrancy        = 0.1696,
+            vibrancy        = 0.17,
         },
 
         -- Glow
