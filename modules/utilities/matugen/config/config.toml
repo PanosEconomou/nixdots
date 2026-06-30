@@ -1,5 +1,10 @@
 [ config ]
+
 [ templates.quickshell ]
 input_path  = "~/.config/matugen/templates/quickshell-colors.json"
 output_path = "~/.local/state/quickshell/colors.json"
 
+[ templates.kitty ]
+input_path  = "~/.config/matugen/templates/kitty-colors.conf"
+output_path = "~/.config/kitty/current-theme.conf"
+post_hook   = "pkill -USR1 -f kitty"
