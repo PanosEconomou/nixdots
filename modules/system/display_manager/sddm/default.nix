@@ -1,19 +1,34 @@
 { pkgs, ... }:
+let
+  username = "pano";
+  sddm-astronaut = pkgs.sddm-astronaut.override {
+    embeddedTheme = "astronaut";
+    themeConfig = {
+      Background = "/var/lib/sddm-wallpaper/current.png";
+      CropBackground = true;
+      FillBlur = "false";
+    };
+  };
+in
 {
-  environment.systemPackages = with pkgs; [ sddm-astronaut ];
+  environment.systemPackages = [ sddm-astronaut pkgs.imagemagick];
 
   services.displayManager = {
     sddm = {
       enable = true;
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
-      extraPackages = [ pkgs.sddm-astronaut ];
+      extraPackages = [ sddm-astronaut ];
     };
 
     autoLogin = {
       enable = false;
-      user = "pano";
+      user = username;
     };
   };
+
+  systemd.tmpfiles.rules = [
+    "d /var/lib/sddm-wallpaper 0755 ${username} users -"
+  ];
 }
 
