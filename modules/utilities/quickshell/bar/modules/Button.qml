@@ -6,12 +6,12 @@ Rectangle {
 
   property string glyph: "?"
   property var action: function() {}
-  property color glyphColor: "#c0caf5"
+  property color glyphColor: Colors.c.onPrimaryContainer
 
   width: 34
   height: 34
   radius: width/2
-  color: mousearea.containsMouse ? "#2a2b3d" : "#1a1b26"
+  color: mousearea.containsMouse ? Colors.c.dimmed : Colors.c.primaryContainer
 
   Text {
     anchors.centerIn: parent
@@ -31,4 +31,10 @@ Rectangle {
   property string command: ""
   function run(cmd) { launcher.command = ["sh", "-c", cmd]; launcher.running = true }
   Process { id: launcher }
+
+  Behavior on color {
+    ColorAnimation {
+      duration: 100
+    }
+  }
 }

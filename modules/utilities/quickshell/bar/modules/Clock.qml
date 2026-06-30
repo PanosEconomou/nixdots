@@ -8,23 +8,14 @@ Rectangle {
   clip: true
   default property alias menuItems: revealColumn.data
 
-  // ── Layout parameters ──
+  // Layout parameters 
   property real restingHeight: 90
   property real topPadding: 14        // clock's distance from top when expanded
   property real gap: 10               // space between clock and buttons
   property real bottomPadding: 4
-
   property bool expanded: hover.hovered
-
-  // Entrance
-  property real restingX: 13
-  x: restingX
-  NumberAnimation {
-    target: bar; property: "x"
-    from: -bar.width; to: bar.restingX
-    duration: 500; easing.type: Easing.OutBack
-    running: true
-  }
+  property color base: Colors.c.surfaceContainer 
+  color: Qt.rgba(base.r, base.g, base.b, 0.8)
 
   HoverHandler {
     id: hover
@@ -52,11 +43,13 @@ Rectangle {
       anchors.horizontalCenter: parent.horizontalCenter
       text: Qt.formatDateTime(clock.date, "hh")
       font.family: "Fira Code"; font.pixelSize: 16; font.weight: 600
+      color: Colors.c.foreground
     }
     Text {
       anchors.horizontalCenter: parent.horizontalCenter
       text: Qt.formatDateTime(clock.date, "mm")
       font.family: "Fira Code"; font.pixelSize: 16; font.weight: 600
+      color: Colors.c.foreground
     }
   }
 

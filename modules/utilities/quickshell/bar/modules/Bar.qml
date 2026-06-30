@@ -4,34 +4,23 @@ Rectangle {
   id: bar
   
   // Define properties that can be edited from the outside
-  width:                          40
-  radius:                         width/2
-  color:                          "#ffffff"
-  property int percent:           0
-  property color fillColor:       "#98c8e0"
-  property real restingX:         13
-  property real restingHeight:    90
-  property real hoverHeight:      110
-  property string glyphicon:      "?"
-  property color regularColor:    "#c0caf5"
-  property color constrastColor:  "#16161e"
-  property string glyphfamily:    "Fira Code"
-  property int glyphweight:       600
-  property int pixelsize:         18
-  property int textsize:          16
-  property string unitsymbol:     "%"
-
-  // Entrance Animation
-  x: restingX
-  NumberAnimation {
-    target: bar
-    property: "x"
-    from: -bar.width
-    to: bar.restingX
-    duration: 500
-    easing.type: Easing.OutBack
-    running: true;
-  }
+  width:                        40
+  radius:                       width/2
+  property color base:          Colors.c.surfaceContainer 
+  color:                        Qt.rgba(base.r, base.g, base.b, 0.8)
+  property int percent:         0
+  property color fillColor:     Colors.c.primary
+  property real restingX:       13
+  property real restingHeight:  90
+  property real hoverHeight:    110
+  property string glyphicon:    "?"
+  property color regularColor:  Colors.c.foreground
+  property color contrastColor: Colors.c.onSecondary
+  property string glyphfamily:  "Fira Code"
+  property int glyphweight:     600
+  property int pixelsize:       18
+  property int textsize:        16
+  property string unitsymbol:   "%"
 
   // Detect Hover
   MouseArea {
@@ -133,7 +122,7 @@ Rectangle {
         font.family: bar.glyphfamily
         font.weight: bar.glyphweight 
         font.pixelSize: glyph.pixelSize
-        color: bar.constrastColor
+        color: bar.contrastColor
       }
     }
   }}

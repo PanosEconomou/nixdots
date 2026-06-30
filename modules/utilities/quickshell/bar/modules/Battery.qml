@@ -8,10 +8,11 @@ Bar {
   property bool chargerConnected: !UPower.onBattery
 
   // Change color based on charge
-  fillColor: {
-    if (percent >= 66)  return "#9ece6a"
-    if (percent >= 33)  return "#e0af68"
-    return "#7aa2f7"
+  fillColor:{
+    if (percent >= 75)  return Colors.c.primary
+    if (percent >= 55)  return Colors.c.secondary
+    if (percent >= 35)  return Colors.c.tertiary
+                        return Colors.c.error
   }
 
   glyphicon: {

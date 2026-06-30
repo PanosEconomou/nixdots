@@ -73,3 +73,9 @@ rule({
     blur            = true,
     ignore_alpha    = 0.0,
 })
+
+rule({
+    match           = { namespace = "quickshell:bar" },
+    blur            = true,
+    ignore_alpha    = 0.7,
+})

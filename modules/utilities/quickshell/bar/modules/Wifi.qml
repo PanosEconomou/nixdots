@@ -16,12 +16,13 @@ Bar{
   unitsymbol: ""
 
   // Change the fill color based on the state
-  fillColor: {
-    if (!connected)     return "#565f89"
-    if (percent >= 66)  return "#9ece6a"
-    if (percent >= 33)  return "#e0af68"
-                        return "#f7768e"
+  fillColor:{
+    if (!connected)     return Colors.c.dimmed
+    if (percent >= 66)  return Colors.c.primary
+    if (percent >= 33)  return Colors.c.secondary
+                        return Colors.c.tertiary
   }
+  contrastColor: (!connected) ? Colors.c.foreground : Colors.c.onSecondary
 
   // Find what the network device is called using iwd
   Process {

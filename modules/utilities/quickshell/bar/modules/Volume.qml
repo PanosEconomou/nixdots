@@ -7,11 +7,12 @@ Bar {
 
   // Different colors depending on state
   fillColor:{
-    if (muted)          return "#565f89"
-    if (percent >= 66)  return "#9ece6a"
-    if (percent >= 33)  return "#e0af68"
-                        return "#7aa2f7"
+    if (muted)          return Colors.c.dimmed
+    if (percent >= 66)  return Colors.c.primary
+    if (percent >= 33)  return Colors.c.secondary
+                        return Colors.c.tertiary
   }
+  contrastColor: muted ? Colors.c.foreground : Colors.c.onSecondary
 
   // Who is playing and on what
   property string sinkName: ""
