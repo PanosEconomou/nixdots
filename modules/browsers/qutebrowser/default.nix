@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, ... }:
 let
   repo = "${config.home.homeDirectory}/.nixos/modules/browsers/qutebrowser/config";
   link = name: config.lib.file.mkOutOfStoreSymlink "${repo}/${name}";

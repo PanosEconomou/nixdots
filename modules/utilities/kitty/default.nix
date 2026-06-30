@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{ config, ... }:
+let
+  repo = "${config.home.homeDirectory}/.nixos/modules/utilities/kitty/config";
+  link = name: config.lib.file.mkOutOfStoreSymlink "${repo}/${name}";
+in
 {
   programs.kitty = {
     enable = true;
@@ -9,13 +13,17 @@
       disable_ligatures = "never";
       confirm_os_window_close = 0;
     };
-   
-   # Theme management
-   extraConfig = "include current-theme.conf";
+
+    # Theme management
+    extraConfig = ''
+      include current-theme.conf
+      include properties.conf
+      '';
   };
 
-  # Symlink current theme and theme folder
-  xdg.configFile."kitty/current-theme.conf".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nixos/modules/utilities/kitty/current-theme.conf";
-  xdg.configFile."kitty/themes".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nixos/modules/utilities/kitty/themes";
+# Symlink current theme and theme folder
+  xdg.configFile."kitty/current-theme.conf".source =  link "current-theme.conf";
+  xdg.configFile."kitty/properties.conf".source =     link "properties.conf";
+  xdg.configFile."kitty/themes".source =              link "themes";
 }
 
