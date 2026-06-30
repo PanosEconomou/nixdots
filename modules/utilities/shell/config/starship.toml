@@ -6,7 +6,7 @@ format = "[$symbol$branch]($style) "
 
 [git_commit]
 commit_hash_length = 7
-tag_symbol = " "  # Nerd Font Git commit logo
+tag_symbol = " "
 style = "bold yellow"
 format = "[$symbol$commit]($style) "
 
@@ -21,14 +21,14 @@ revert = " REVERTING"
 
 [git_status]
 # format = '([\[$all_status$ahead_behind\]]($style)) '
-format = '([\[$all_status$ahead_behind\]]($style) )'
+format = '([$all_status$ahead_behind]($style) )'
 style = "bold green"
-staged = ''       # Nerd Font symbol for staged files
-modified = ''     # Nerd Font symbol for modified files
-deleted = ''      # Nerd Font symbol for deleted files
-renamed = ''      # Nerd Font symbol for renamed files
-untracked = ''    # Nerd Font symbol for untracked files
-conflicted = ''   # Nerd Font symbol for conflicted files
+staged = '+'
+modified = ''
+deleted = ''
+renamed = ''
+untracked = ''
+conflicted = ''
 ahead = '↑'
 behind = '↓'
 
