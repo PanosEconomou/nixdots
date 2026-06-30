@@ -12,6 +12,7 @@
     ../../modules/system/utilities/upower
     ../../modules/system/utilities/wayland_tools
     ../../modules/system/utilities/qt
+    ../../modules/system/utilities/plymouth
   ];
 }
 

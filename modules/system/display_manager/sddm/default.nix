@@ -4,9 +4,31 @@ let
   sddm-astronaut = pkgs.sddm-astronaut.override {
     embeddedTheme = "astronaut";
     themeConfig = {
-      Background = "/var/lib/sddm-wallpaper/current.png";
-      CropBackground = true;
-      FillBlur = "false";
+
+      # Background
+      Background          = "/var/lib/sddm-wallpaper/current.png";
+      CropBackground      = "true";
+      DimBackground       = "0.0";
+
+      # Blur
+      FullBlur            = "false";
+      PartialBlur         = "true";
+
+      # Form
+      FormPosition        = "center";
+      HaveFormBackground  = "true";
+      RoundCornders       = "50";
+
+      # Typography
+      Font                = "Fira Code";
+      # FontSize            = "10";
+      HeaderText          = "welcome to wisp";
+      HourFormat          = "HH:mm";
+
+      # Others
+      ForceLastUser       = "true";
+      PasswordFocus       = "true";
+      HideVirtualKeyboard = "false";
     };
   };
 in

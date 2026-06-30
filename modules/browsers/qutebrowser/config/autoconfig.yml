@@ -145,6 +145,7 @@ settings:
     global:
       DEFAULT: https://duckduckgo.com/?q={}
       aw: https://wiki.archlinux.org/?search={}
+      np: https://search.nixos.org/packages?&query={}
       you: https://www.youtube.com/results?search_query={}
   url.start_pages:
     global: home.panos.wiki
