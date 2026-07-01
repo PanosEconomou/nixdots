@@ -25,7 +25,6 @@ ShellRoot {
       anchors.fill: parent
       onClicked: win.revealed = false
     }
-
     // Animate reveal
     property real progress: revealed ? 1 : 0
     Behavior on progress {
@@ -37,14 +36,14 @@ ShellRoot {
 
     Shape {
       id: notch
-      property real bodyWidth: 600 // width of the flat body
+      property real bodyWidth: 600 
       property real notchHeight: win.progress * 300 
-      property real topRadius: 38        // concave flare radius
-      property real bottomRadius: 28     // convex bottom radius
+      property real topRadius: 38
+      property real bottomRadius: 28
 
       implicitWidth: bodyWidth + 2 * topRadius
       implicitHeight: notchHeight
-      preferredRendererType: Shape.CurveRenderer   // much crisper curves, Qt 6.6+
+      preferredRendererType: Shape.CurveRenderer
 
       anchors {
         horizontalCenter: parent.horizontalCenter
@@ -74,18 +73,5 @@ ShellRoot {
         }
       }
     }
-    // Rectangle {
-    //   id: box
-    //   width: 400
-    //   height: 300
-    //   radius: 25
-    //   color: "#1e1e2e"
-    //
-    //   anchors {
-    //     horizontalCenter: parent.horizontalCenter
-    //     top: parent.top
-    //     topMargin: -height + win.progress * height 
-    //   }
-    // }
   }
 }

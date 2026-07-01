@@ -12,7 +12,7 @@ IMAGE_PATH="$(realpath "$1")"
 # Config file path
 CONFIG_FILE="$HOME/.config/hypr/hyprpaper.conf"
 LOCK_FILE="$HOME/.config/hypr/hyprlock.conf"
-SDDM_THEME="/var/lib/sddm-wallpaper/current.png"
+SDDM_THEME="/var/lib/wallpaper/current.png"
 
 # Generate colors
 matugen image "$IMAGE_PATH"

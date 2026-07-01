@@ -50,7 +50,7 @@ in
   };
 
   systemd.tmpfiles.rules = [
-    "d /var/lib/sddm-wallpaper 0755 ${username} users -"
+    "d /var/lib/wallpaper 0755 ${username} users -"
   ];
 }
 
