@@ -49,6 +49,7 @@ settings:
   content.javascript.clipboard:
     https://chatgpt.com: access-paste
     https://claude.ai: access-paste
+    https://docs.google.com: access-paste
     https://duckduckgo.com: access-paste
     https://github.com: access-paste
     https://google.github.io: access-paste

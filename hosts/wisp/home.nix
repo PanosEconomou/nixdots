@@ -18,11 +18,12 @@
     ../../modules/utilities/cursors/google-dot
 
     ../../modules/editors/neovim
-    ../../modules/editors/marktext
+    ../../modules/editors/typora
 
     ../../modules/browsers/qutebrowser
 
     ../../modules/communication/slack
+    ../../modules/communication/signal
 
     ../../modules/media/pdf/zathura
     ../../modules/media/img/swayimg

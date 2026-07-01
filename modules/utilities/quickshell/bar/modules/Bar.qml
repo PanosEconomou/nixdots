@@ -1,4 +1,5 @@
-import QtQuick 
+import QtQuick
+import QtQuick.Effects
 
 Rectangle {
   id: bar
@@ -6,8 +7,8 @@ Rectangle {
   // Define properties that can be edited from the outside
   width:                        40
   radius:                       width/2
-  property color base:          Colors.c.surfaceContainer 
-  color:                        Qt.rgba(base.r, base.g, base.b, 0.8)
+  property color base:          Colors.c.background
+  color:                        Qt.rgba(base.r, base.g, base.b, 0.80)
   property int percent:         0
   property color fillColor:     Colors.c.primary
   property real restingX:       13
@@ -37,6 +38,15 @@ Rectangle {
       easing.type: Easing.OutCubic
     }
   }
+  
+  // // Shadow
+  // RectangularShadow {
+  //   anchors.fill: bar
+  //   radius: bar.radius
+  //   blur: 3
+  //   spread: 1
+  //   color: Qt.darker(bar.color, 1.6)
+  // }
 
   // Rectangle that fills this
   Rectangle {
@@ -125,4 +135,5 @@ Rectangle {
         color: bar.contrastColor
       }
     }
-  }}
+  }
+}

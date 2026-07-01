@@ -11,7 +11,8 @@ in
   # Load the language server
   home.packages = with pkgs; [ qt6.qtdeclarative ];
 
-  # Symlink the bar
-  xdg.configFile."quickshell/bar".source = link "bar";
+  # Symlink the bar and drawer
+  xdg.configFile."quickshell/bar".source    = link "bar";
+  xdg.configFile."quickshell/drawer".source = link "drawer";
 }
 

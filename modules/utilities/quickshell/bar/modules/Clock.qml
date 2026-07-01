@@ -1,5 +1,6 @@
 import Quickshell
 import QtQuick
+import QtQuick.Effects
 
 Rectangle {
   id: bar
@@ -14,7 +15,7 @@ Rectangle {
   property real gap: 10               // space between clock and buttons
   property real bottomPadding: 4
   property bool expanded: hover.hovered
-  property color base: Colors.c.surfaceContainer 
+  property color base: Colors.c.background
   color: Qt.rgba(base.r, base.g, base.b, 0.8)
 
   HoverHandler {
@@ -25,6 +26,15 @@ Rectangle {
   ? topPadding + clockFace.height + gap + revealColumn.implicitHeight + bottomPadding
   : restingHeight
   Behavior on height { NumberAnimation { duration: 350; easing.type: Easing.OutCubic } }
+
+  // // Shadow
+  // RectangularShadow {
+  //   anchors.fill: bar
+  //   radius: bar.radius
+  //   blur: 3
+  //   spread: 1
+  //   color: Qt.darker(bar.color, 1.6)
+  // }
 
   // ── The clock: centered when collapsed, near-top when expanded ──
   Column {
