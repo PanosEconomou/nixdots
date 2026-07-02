@@ -8,9 +8,21 @@ let
     exec ${pkgs.tlp}/bin/tlp fullcharge BAT0 
   '';
 
-  # Conservative and takes care of the battery. Keeps it comfy between 50% and 60%
+  # Keeps the battery comfy between 50% and 60%
   batteryCare = pkgs.writeShellScriptBin "battery-care" ''
     exec ${pkgs.tlp}/bin/tlp setcharge 50 60 BAT0 
+  '';
+
+  # Toggles between the two modes
+  batteryToggle = pkgs.writeShellScriptBin "battery-toggle" ''
+    end_threshold=$(cat /sys/class/power_supply/BAT0/charge_control_end_threshold)
+    if [ "$end_threshold" -ge 90 ]; then 
+      echo "Switching to care mode"
+      exec ${pkgs.tlp}/bin/tlp setcharge 50 60 BAT0 
+    else 
+      echo "Switching to full mode"
+      exec ${pkgs.tlp}/bin/tlp fullcharge BAT0 
+    fi 
   '';
 in
 {
@@ -38,14 +50,15 @@ in
   };
 
   # Load the custom scripts
-  environment.systemPackages = [ batteryFull batteryCare ];
+  environment.systemPackages = [ batteryFull batteryCare batteryToggle ];
 
   # Let them execute without sudo
   security.sudo.extraRules = [{
     groups = [ "wheel" ];
     commands =[ 
-      { command = "/run/current-system/sw/bin/battery-full"; options = [ "NOPASSWD" ]; }
-      { command = "/run/current-system/sw/bin/battery-care"; options = [ "NOPASSWD" ]; }
+      { command = "/run/current-system/sw/bin/battery-full";   options = [ "NOPASSWD" ]; }
+      { command = "/run/current-system/sw/bin/battery-care";   options = [ "NOPASSWD" ]; }
+      { command = "/run/current-system/sw/bin/battery-toggle"; options = [ "NOPASSWD" ]; }
     ];
   }];
 }

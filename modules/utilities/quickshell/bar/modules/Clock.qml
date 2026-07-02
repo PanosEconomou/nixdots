@@ -11,8 +11,8 @@ Rectangle {
 
   // Layout parameters 
   property real restingHeight: 90
-  property real topPadding: 14        // clock's distance from top when expanded
-  property real gap: 10               // space between clock and buttons
+  property real topPadding: 10        // clock's distance from top when expanded
+  property real gap: 20               // space between clock and buttons
   property real bottomPadding: 4
   property bool expanded: hover.hovered
   property color base: Colors.c.background

@@ -3,6 +3,9 @@ import QtQuick
 
 Bar {
   id:volume
+
+  // Mute on press
+  command: "wpctl set-mute @DEFAULT_SINK@ toggle"
   property bool muted: false
 
   // Different colors depending on state

@@ -4,12 +4,14 @@ import QtQuick
 
 Bar {
   id: battery
+  command: "sudo battery-toggle"
   percent: Math.round(UPower.displayDevice.percentage * 100)
   property bool charging: UPower.displayDevice.state === UPowerDeviceState.Charging
   property bool chargerConnected: !UPower.onBattery
   property int endThreshold: -1
   property bool powerSaving: endThreshold <= 90
   property string powerSavingSymbol: "\n\udb80\udf2a"
+  unitsymbol: powerSaving ? powerSavingSymbol : ""
 
   // Look at the file where the storage cap is set and change that
   FileView {
@@ -22,9 +24,9 @@ Bar {
 
   // Change color based on charge
   fillColor:{
-    if (percent >= 75)  return Colors.c.primary
-    if (percent >= 55)  return Colors.c.secondary
-    if (percent >= 35)  return Colors.c.tertiary
+    if (percent >= 75)  return powerSaving ? Colors.c.primaryVar   : Colors.c.primary
+    if (percent >= 55)  return powerSaving ? Colors.c.secondaryVar : Colors.c.secondary
+    if (percent >= 35)  return powerSaving ? Colors.c.tertiaryVar  : Colors.c.tertiary
                         return Colors.c.error
   }
   

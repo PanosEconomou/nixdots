@@ -1,3 +1,4 @@
+import Quickshell.Io
 import QtQuick
 import QtQuick.Effects
 
@@ -22,12 +23,21 @@ Rectangle {
   property int pixelsize:       18
   property int textsize:        16
   property string unitsymbol:   "%"
+  property string command:      ""
+  
+  // Set up command execution
+  Process { id: launcher }
+  function run(cmd) { launcher.command = ["sh", "-c", cmd]; launcher.running = true }
+  property var action: () => run(command);
 
   // Detect Hover
   MouseArea {
     id: hover
     anchors.fill: parent
     hoverEnabled: true
+    onPressed: bar.height = bar.hoverHeight * 0.95
+    onReleased: bar.height = bar.hoverHeight
+    onClicked: bar.action()
   }
 
   // Hover Animation
@@ -38,7 +48,7 @@ Rectangle {
       easing.type: Easing.OutCubic
     }
   }
-  
+
   // // Shadow
   // RectangularShadow {
   //   anchors.fill: bar

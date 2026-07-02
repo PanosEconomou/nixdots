@@ -3,6 +3,7 @@ import QtQuick
 
 Bar{
   id: wifi
+  command: "kitty -e iwctl &"
   property string device: "wlan0"
   property int rssi: 0
   property string ssid: ""
