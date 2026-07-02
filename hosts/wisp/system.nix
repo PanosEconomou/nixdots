@@ -7,6 +7,7 @@
 
     ../../modules/system/hardware/bluetooth
     ../../modules/system/hardware/keyd
+    ../../modules/system/hardware/laptop_power
 
     ../../modules/system/utilities/fonts
     ../../modules/system/utilities/upower
