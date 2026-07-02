@@ -2,6 +2,8 @@ import Quickshell
 import Quickshell.Wayland
 import QtQuick
 import QtQuick.Shapes
+import QtQuick.Controls
+import "modules"
 
 ShellRoot {
   PanelWindow {
@@ -48,6 +50,21 @@ ShellRoot {
       anchors {
         horizontalCenter: parent.horizontalCenter
         top: parent.top
+      }
+
+      TextField {
+        anchors {
+          horizontalCenter: parent.horizontalCenter
+          top: parent.top
+          topMargin: 20
+        }
+        placeholderText: qsTr("Hello!")
+        focus: true
+        background: Rectangle {
+          implicitWidth: notch.bodyWidth
+          implicitHeight: 40
+          color: "transparent"
+        }
       }
 
       ShapePath {
