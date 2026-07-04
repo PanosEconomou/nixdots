@@ -1,0 +1,10 @@
+# modules/qmldir
+module modules
+singleton Colors 1.0 Colors.qml
+Bar 1.0 Bar.qml
+Battery 1.0 Battery.qml
+Button 1.0 Button.qml
+Clock 1.0 Clock.qml
+Handler 1.0 Handler.qml
+Volume 1.0 Volume.qml
+Wifi 1.0 Wifi.qml

@@ -74,8 +74,17 @@ rule({
     ignore_alpha    = 0.0,
 })
 
+-- blur the quickshell bar
 rule({
     match           = { namespace = "quickshell:bar" },
+    blur            = true,
+    ignore_alpha    = 0.7,
+})
+
+-- Prevent the quickshell menu from animating more than it does by itself
+rule({
+    match           = { namespace = "quickshell:drawer" },
+    no_anim         = true,
     blur            = true,
     ignore_alpha    = 0.7,
 })
