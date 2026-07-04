@@ -1,6 +1,6 @@
 { config, configDir, pkgs, ... }:
 let
-  repo = "${configDir}/modules/editots/neovim";
+  repo = "${configDir}/modules/editors/neovim";
   link = name: config.lib.file.mkOutOfStoreSymlink "${repo}/${name}";
 in
 {
