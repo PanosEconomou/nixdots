@@ -42,7 +42,7 @@ in
       CPU_MIN_PERF_ON_AC              = 0;
       CPU_MAX_PERF_ON_AC              = 100;
       CPU_MIN_PERF_ON_BAT             = 0;
-      CPU_MAX_PERF_ON_BAT             = 60;
+      CPU_MAX_PERF_ON_BAT             = 90;
 
       START_CHARGE_THRESH_BAT0        = 50;
       STOP_CHARGE_THRESH_BAT0         = 60;
