@@ -47,6 +47,8 @@ in
       enable = false;
       user = username;
     };
+
+    defaultSession = "hyprland-uwsm";
   };
 
   systemd.tmpfiles.rules = [
