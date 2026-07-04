@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, configDir, pkgs, ... }:
 let
-  repo = "${config.home.homeDirectory}/.nixos/modules/utilities/shell/config";
+  repo = "${configDir}/modules/utilities/shell/config";
   link = name: config.lib.file.mkOutOfStoreSymlink "${repo}/${name}";
 in
 {

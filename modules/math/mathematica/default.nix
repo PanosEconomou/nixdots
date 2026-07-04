@@ -6,9 +6,9 @@
 # in this directory and then rebuild
 #######################################################
 
-{ pkgs, config, lib, ... }:
+{ pkgs, configDir, lib, ... }:
 let
-  installer = "${config.home.homeDirectory}/.nixos/modules/math/mathematica/Wolfram_15_LIN.sh";
+  installer = "${configDir}/modules/math/mathematica/Wolfram_15_LIN.sh";
   hasInstaller = builtins.pathExists installer;
   mathematica = pkgs.mathematica.override {
     source = builtins.path {

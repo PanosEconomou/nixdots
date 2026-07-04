@@ -1,6 +1,6 @@
-{ config, pkgs, ... } :
+{ config, configDir, pkgs, ... } :
 let
-  repo = "${config.home.homeDirectory}/.nixos/modules/utilities/hyprutils";
+  repo = "${configDir}/modules/utilities/hyprutils";
   link = name: config.lib.file.mkOutOfStoreSymlink "${repo}/${name}";
 
   # Create the change wallpaper manager as executable

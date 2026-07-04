@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, configDir, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -12,6 +12,7 @@
   # Home manager setup
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
+  home-manager.extraSpecialArgs = { inherit configDir; };
   home-manager.backupFileExtension = "backup";
   home-manager.users.pano = import ./home.nix;
 

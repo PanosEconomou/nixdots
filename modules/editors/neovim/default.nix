@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{ config, configDir, pkgs, ... }:
+let
+  repo = "${configDir}/modules/editots/neovim";
+  link = name: config.lib.file.mkOutOfStoreSymlink "${repo}/${name}";
+in
 {
   programs.neovim = {
     enable = true;
@@ -7,8 +11,8 @@
   };
 
   # Symlink the config files.
-  xdg.configFile."nvim/init.lua".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nixos/modules/editors/neovim/init.lua";
-  xdg.configFile."nvim/lua".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nixos/modules/editors/neovim/lua";
+  xdg.configFile."nvim/init.lua".source = link "init.lua";
+  xdg.configFile."nvim/lua".source      = link "lua";
 
   # Enable treesiter for colors and whatnot
   home.packages = [ pkgs.tree-sitter ];

@@ -14,6 +14,7 @@
   outputs = { nixpkgs, home-manager, ... }: { 
     nixosConfigurations.wisp = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { configDir = "/home/pano/.nixos"; };
       modules = [
         home-manager.nixosModules.home-manager
         ./hosts/wisp

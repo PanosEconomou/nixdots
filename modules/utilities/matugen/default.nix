@@ -1,6 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, config, configDir, ... }:
 let
-  repo = "${config.home.homeDirectory}/.nixos/modules/utilities/matugen";
+  repo = "${configDir}/modules/utilities/matugen";
   link = name: config.lib.file.mkOutOfStoreSymlink "${repo}/${name}";
 in
 {
