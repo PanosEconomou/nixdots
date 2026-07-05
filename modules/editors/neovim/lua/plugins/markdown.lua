@@ -5,14 +5,13 @@ return {
         "MeanderingProgrammer/render-markdown.nvim",
         ft           = { "markdown" },
         dependencies = {
-            "nvim-treesitter/nvim-treesitter",
             "echasnovski/mini.icons",
         },
         opts = {
             render_modes = { "n", "c" },
             heading = {
-                sign    = false,   -- no signs in signcolumn for headings
-                icons   = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+                sign        = false,   -- no signs in signcolumn for headings
+                icons       = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
             },
             code = {
                 sign        = false,
@@ -34,7 +33,6 @@ return {
     {
         "3rd/image.nvim",
         dependencies = {
-            "nvim-treesitter/nvim-treesitter",
             "echasnovski/mini.icons",
             "3rd/image.nvim",
         },

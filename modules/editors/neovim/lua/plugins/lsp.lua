@@ -15,10 +15,6 @@ return {
     -- This is nvims default awesome language server manager
     {
         "neovim/nvim-lspconfig",
-        dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-        },
         config = function()
 
             -- Add some nice keybinds 

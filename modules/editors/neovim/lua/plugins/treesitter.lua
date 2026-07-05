@@ -3,51 +3,67 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build   = ":TSUpdate",                        -- update parsers when plugin updates
-        branch  = "master",
+        branch  = "main",
         config  = function()
-            require("nvim-treesitter.configs").setup({
-                -- Prarses 
-                ensure_installed = {
-                    -- Programming Languates
-                    "c", "cpp", "python", "julia", "javascript", "typescript",
+            -- Prarses 
+            local parsers = {
+                -- Programming Languages
+                "c", "cpp", "python", "julia", "javascript", "typescript",
 
-                    -- Scripting
-                    "bash", "lua", "qmljs",
+                -- Scripting
+                "bash", "lua", "qmljs",
 
-                    -- Data
-                    "json", "yaml", "toml",
+                -- Data
+                "json", "yaml", "toml",
 
-                    -- Web
-                    "html", "css",
+                -- Web
+                "html", "css",
 
-                    -- Docs
-                    "markdown", "markdown_inline",
+                -- Docs
+                "markdown", "markdown_inline",
 
-                    -- Nvim
-                    "vim", "vimdoc",
-                },
+                -- Nvim
+                "vim", "vimdoc",
+            }
+            require("nvim-treesitter").install(parsers)
 
-                highlight = {
-                    enable  = true,
-                    additional_vim_regex_highlighting = { "latex" },
-                    -- latex needs both treesitter and vim regex
-                    -- because vimtex relies on the vim regex highlighting
-                },
+            vim.api.nvim_create_autocmd("FileType", {
+                callback = function(ev)
+                    -- Highlighting: no-ops quietly if no parser exists for this filetype
+                    local ok = pcall(vim.treesitter.start)
+                    if not ok then return end
 
-                indent = {
-                    enable = true,
-                },
+                    -- latex needs both treesitter AND vim regex highlighting,
+                    -- since vimtex relies on vim regex highlighting.
+                    if ev.match == "tex" or ev.match == "plaintex" then
+                        vim.bo[ev.buf].syntax = "ON"
+                    end
 
-                incremental_selection = {
-                    enable  = true,
-                    keymaps = {
-                        init_selection      = "<CR>",   -- start selection
-                        node_incremental    = "<CR>",   -- expand to next node
-                        node_decremental    = "<BS>",   -- shrink selection
-                        scope_incremental   = "<TAB>",  -- expand to scope
-                    },
-                },
+                    -- Treesitter-based folding
+                    vim.wo[0][0].foldmethod = "expr"
+                    vim.wo[0][0].foldexpr   = "v:lua.vim.treesitter.foldexpr()"
+
+                    -- Treesitter-based indentation (experimental, matches old indent.enable)
+                    vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                end,
             })
         end
+    },
+    {
+        "MeanderingProgrammer/treesitter-modules.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        ---@module 'treesitter-modules'
+        ---@type ts.mod.UserConfig
+        opts = {
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection    = "<CR>",   -- start selection
+                    node_incremental  = "<CR>",   -- expand to next node
+                    node_decremental  = "<BS>",   -- shrink selection
+                    scope_incremental = "<TAB>",  -- expand to scope
+                },
+            },
+        },
     },
 }
