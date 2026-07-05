@@ -21,6 +21,7 @@
     ../../modules/editors/typora
 
     ../../modules/browsers/qutebrowser
+    ../../modules/browsers/luakit
 
     ../../modules/communication/slack
     ../../modules/communication/signal

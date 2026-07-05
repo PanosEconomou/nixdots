@@ -59,16 +59,17 @@ ShellRoot {
 
     // The main drawer
     Rectangle {
-      property color base:        Colors.c.background
-      property real targetWidth:  800
-      property real targetHeight: 70
-      id:                         rectangle 
-      anchors.centerIn:           parent
-      radius:                     35
-      clip:                       true
-      color:                      Qt.rgba(base.r, base.g, base.b, 0.80)
-      width:                      root.shown ? targetWidth: 0
-      height:                     root.shown ? targetHeight : 0
+      property color base:          Colors.c.background
+      property real targetWidth:    800
+      property real targetHeight:   70
+      id:                           rectangle 
+      anchors.centerIn:             parent
+      anchors.verticalCenterOffset: -50
+      radius:                       35
+      clip:                         true
+      color:                        Qt.rgba(base.r, base.g, base.b, 0.80)
+      width:                        root.shown ? targetWidth: 0
+      height:                       root.shown ? targetHeight : 0
 
       // Animate width
       Behavior on width {

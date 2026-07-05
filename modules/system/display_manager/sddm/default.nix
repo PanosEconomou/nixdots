@@ -21,7 +21,7 @@ let
 
       # Typography
       Font                = "Fira Code";
-      # FontSize            = "10";
+      FontSize            = "10";
       HeaderText          = "welcome to wisp";
       HourFormat          = "HH:mm";
 

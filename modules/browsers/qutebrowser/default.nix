@@ -10,7 +10,7 @@ in
     extraConfig = "config.source('theme.py')";
   };
 
-  # Symlink the config files
+# Symlink the config files
   xdg.configFile."qutebrowser/theme.py".source          = link "theme.py";
   xdg.configFile."qutebrowser/themes".source            = link "themes";
   xdg.configFile."qutebrowser/autoconfig.yml".source    = link "autoconfig.yml";
