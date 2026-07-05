@@ -20,6 +20,9 @@
     ../../modules/editors/neovim
     ../../modules/editors/typora
 
+    ../../modules/cad/freecad
+    ../../modules/cad/kicad
+
     ../../modules/browsers/qutebrowser
     ../../modules/browsers/luakit
 
