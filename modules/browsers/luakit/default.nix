@@ -7,6 +7,6 @@ in
   home.packages = [ pkgs.luakit ];
 
   # Symlink the configfiles
-  xdg.configFile."luakit/theme.lua".source = link "theme.lua";
+  # xdg.configFile."luakit/theme.lua".source = link "theme.lua";
   # xdg.configFile."luakit/rc.lua".source = link "rc.lua";
 }
