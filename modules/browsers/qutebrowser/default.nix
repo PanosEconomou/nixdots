@@ -9,6 +9,17 @@ in
     loadAutoconfig = true;
     extraConfig = "config.source('theme.py')";
   };
+  
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = "qutebrowser.desktop";
+      "x-scheme-handler/http" = "qutebrowser.desktop";
+      "x-scheme-handler/https" = "qutebrowser.desktop";
+      "x-scheme-handler/about" = "qutebrowser.desktop";
+      "x-scheme-handler/unknown" = "qutebrowser.desktop";
+    };
+  };
 
 # Symlink the config files
   xdg.configFile."qutebrowser/theme.py".source          = link "theme.py";

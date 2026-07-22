@@ -23,8 +23,8 @@
     ../../modules/cad/freecad
     ../../modules/cad/kicad
 
+    # ../../modules/browsers/luakit
     ../../modules/browsers/qutebrowser
-    ../../modules/browsers/luakit
 
     ../../modules/communication/slack
     ../../modules/communication/signal
