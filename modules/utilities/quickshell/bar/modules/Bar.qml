@@ -1,6 +1,5 @@
 import Quickshell.Io
 import QtQuick
-import QtQuick.Effects
 
 Rectangle {
   id: bar
@@ -94,8 +93,6 @@ Rectangle {
     anchors.fill: parent
 
     // Properties of the glyph 
-
-    // single source of truth so both copies stay pixel-identical
     property string content:  hover.containsMouse ? (bar.percent + bar.unitsymbol) : bar.glyphicon
     property int pixelSize:   hover.containsMouse ? bar.textsize : bar.pixelsize
     Behavior on pixelSize { 

@@ -90,7 +90,8 @@ PanelWindow {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottomMargin: 8
             spacing: 20
-
+            
+            Arxiv {}
             Volume {}
             Wifi {}
             Battery {}
