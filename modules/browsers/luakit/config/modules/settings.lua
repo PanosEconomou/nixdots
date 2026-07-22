@@ -1,10 +1,11 @@
 -- Basic Settings Configuration
-local settings  = require "settings"
-local downloads = require "downloads"
+local settings      = require "settings"
+local newtab_chrome = require "newtab_chrome"
+local downloads     = require "downloads"
 
 -- Homepage
 settings.window.home_page                   = "https://home.panos.wiki"
-settings.window.new_tab_page                = "https://home.panos.wiki"
+newtab_chrome.new_tab_src                   = "<script>location.replace('https://home.panos.wiki')</script>"
 
 -- Search Engines
 settings.window.search_engines.d            = "https://duckduckgo.com/%s"

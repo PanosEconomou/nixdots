@@ -37,7 +37,7 @@ in
       CPU_SCALING_GOVERNOR_ON_BAT     = "powersave";
 
       CPU_ENERGY_PERF_POLICY_ON_AC    = "balance_performance";
-      CPU_ENERGY_PERF_POLICY_ON_BAT   = "power";
+      CPU_ENERGY_PERF_POLICY_ON_BAT   = "balance_performance";
 
       CPU_HWP_DYN_BOOST_ON_AC         = 1;
       CPU_HWP_DYN_BOOST_ON_BAT        = 1;
@@ -48,7 +48,7 @@ in
       CPU_MIN_PERF_ON_AC              = 0;
       CPU_MAX_PERF_ON_AC              = 90;
       CPU_MIN_PERF_ON_BAT             = 0;
-      CPU_MAX_PERF_ON_BAT             = 80;
+      CPU_MAX_PERF_ON_BAT             = 90;
 
       START_CHARGE_THRESH_BAT0        = 50;
       STOP_CHARGE_THRESH_BAT0         = 60;
