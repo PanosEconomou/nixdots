@@ -12,12 +12,15 @@ in
   
   xdg.mimeApps = {
     enable = true;
-    defaultApplications = {
-      "text/html" = "qutebrowser.desktop";
-      "x-scheme-handler/http" = "qutebrowser.desktop";
-      "x-scheme-handler/https" = "qutebrowser.desktop";
-      "x-scheme-handler/about" = "qutebrowser.desktop";
-      "x-scheme-handler/unknown" = "qutebrowser.desktop";
+    defaultApplications = 
+    let qb = [ "org.qutebrowser.qutebrowser.desktop" ];
+    in 
+    {
+      "text/html" = qb;
+      "x-scheme-handler/http" = qb;
+      "x-scheme-handler/https" = qb;
+      "x-scheme-handler/about" = qb;
+      "x-scheme-handler/unknown" = qb;
     };
   };
 

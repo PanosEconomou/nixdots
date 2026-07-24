@@ -25,6 +25,7 @@
 
     # ../../modules/browsers/luakit
     ../../modules/browsers/qutebrowser
+    ../../modules/browsers/firefox
 
     ../../modules/communication/slack
     ../../modules/communication/signal
