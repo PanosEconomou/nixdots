@@ -1,8 +1,19 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    pyright     # Language server for lsp
-    python3
+    (python3.withPackages (python-pkgs: with python-pkgs; [
+
+      # For building
+      build
+      twine
+
+      # For quick science
+      numpy
+      matplotlib
+
+    ]))
+
+    pyright     # LSP
   ];
 }
 
