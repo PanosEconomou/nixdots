@@ -8,7 +8,8 @@ config({
         gaps_out            = 8,
         border_size         = 0,
         col = {
-            active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
+            active_border   = { colors = { "rgb(000000)" }, angle = 45 },
+            -- active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
             inactive_border = "rgba(59595955)",
         },
 

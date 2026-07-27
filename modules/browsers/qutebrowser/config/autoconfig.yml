@@ -53,6 +53,7 @@ settings:
     https://claude.ai: access-paste
     https://discord.com: access-paste
     https://docs.google.com: access-paste
+    https://duck.ai: access-paste
     https://duckduckgo.com: access-paste
     https://github.com: access-paste
     https://google.github.io: access-paste

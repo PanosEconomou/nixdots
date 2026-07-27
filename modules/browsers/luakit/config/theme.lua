@@ -1,146 +1,101 @@
---------------------------------
--- Dracula theme for luakit    --
--- Matches Dracula qutebrowser --
--- color scheme                --
---------------------------------
+--------------------------
+-- Default luakit theme --
+--------------------------
 
 local theme = {}
 
 -- Default settings
-theme.font                 = "12px monospace"
-theme.veryhigh_font        = "20px Cursive"
-theme.selected_font        = theme.font
-theme.form_ok_font         = theme.font
-theme.form_softfail_font   = theme.font
-theme.form_hardfail_font   = theme.font
+theme.font = "14px Fira Code"
+theme.fg   = "#fff"
+theme.bg   = "#000"
 
--- Base Dracula palette
-local bg        = "#282a36"
-local bg_light  = "#44475a"
-local fg        = "#f8f8f2"
-local comment   = "#6272a4"
-local cyan      = "#8be9fd"
-local green     = "#50fa7b"
-local orange    = "#ffb86c"
-local pink      = "#ff79c6"
-local purple    = "#bd93f9"
-local red       = "#ff5555"
-local yellow    = "#f1fa8c"
+-- General colours
+theme.success_fg = "#0f0"
+theme.loaded_fg  = "#33AADD"
+theme.error_fg   = "#FFF"
+theme.error_bg   = "#A00"
 
--- General settings
-theme.fg                        = fg
-theme.bg                        = bg
+-- Warning colours
+theme.warning_fg = "#F00"
+theme.warning_bg = "#000"
 
--- Genereal notification / warning colors
-theme.notif_fg_color            = fg
-theme.notif_bg_color            = bg
+-- Notification colours
+theme.notif_fg = "#444"
+theme.notif_bg = "#000"
 
-theme.error_fg_color            = red
-theme.error_bg_color            = bg
+-- Menu colours
+theme.menu_fg                   = "#fff"
+theme.menu_bg                   = "#000"
+theme.menu_selected_fg          = "#fff"
+theme.menu_selected_bg          = "#880"
+theme.menu_title_bg             = "#000"
+theme.menu_primary_title_fg     = "#a00"
+theme.menu_secondary_title_fg   = "#666"
 
--- Warning colors
-theme.warning_fg_color          = yellow
-theme.warning_bg_color          = bg
-
--- Statusbar specific
-theme.sbar_fg                   = fg
-theme.sbar_bg                   = bg
-
--- Downloadbar
-theme.dbar_fg                   = fg
-theme.dbar_bg                   = bg
-theme.dbar_error_fg              = red
-
--- Menu
-theme.menu_fg                   = fg
-theme.menu_bg                   = bg
-theme.menu_selected_fg          = fg
-theme.menu_selected_bg          = bg_light
-
-theme.menu_disabled_fg          = comment
-theme.menu_disabled_bg          = bg
-
-theme.menu_title_bg             = bg_light
-theme.menu_primary_title_fg     = purple
-theme.menu_secondary_title_fg   = comment
+theme.menu_disabled_fg = "#fff"
+theme.menu_disabled_bg = theme.menu_bg
+theme.menu_enabled_fg = theme.menu_fg
+theme.menu_enabled_bg = theme.menu_bg
+theme.menu_active_fg = "#060"
+theme.menu_active_bg = theme.menu_bg
 
 -- Proxy manager
-theme.proxy_active_menu_fg      = green
-theme.proxy_active_menu_bg      = bg
-theme.proxy_inactive_menu_fg    = comment
-theme.proxy_inactive_menu_bg    = bg
+theme.proxy_active_menu_fg      = '#fff'
+theme.proxy_active_menu_bg      = '#000'
+theme.proxy_inactive_menu_fg    = '#888'
+theme.proxy_inactive_menu_bg    = '#000'
 
--- Statusbar text and background colors
-theme.uri_sfg                   = comment
-theme.uri_efg                   = comment
+-- Statusbar specific
+theme.sbar_fg         = "#fff"
+theme.sbar_bg         = "#000"
 
-theme.uri_sbg                   = bg
-theme.uri_ebg                   = bg
+-- Downloadbar specific
+theme.dbar_fg         = "#fff"
+theme.dbar_bg         = "#000"
+theme.dbar_error_fg   = "#A00"
 
-theme.loaded_sfg                = cyan
-theme.loaded_efg                = green
+-- Input bar specific
+theme.ibar_fg           = "#fff"
+theme.ibar_bg           = "rgba(0,0,0,0)"
 
-theme.buf_sfg                   = pink
-theme.buf_ebg                   = bg
-theme.buf_efg                   = pink
-theme.buf_sbg                   = bg
+-- Tab label
+theme.tab_fg            = "#888"
+theme.tab_bg            = "#222"
+theme.tab_hover_bg      = "#292929"
+theme.tab_ntheme        = "#ddd"
+theme.selected_fg       = "#fff"
+theme.selected_bg       = "#000"
+theme.selected_ntheme   = "#ddd"
+theme.loading_fg        = "#33AADD"
+theme.loading_bg        = "#000"
 
-theme.tabtitle_sfg              = fg
-theme.tabtitle_efg              = fg
+theme.selected_private_tab_bg = "#3d295b"
+theme.private_tab_bg    = "#22254a"
 
-theme.tabtitle_sbg              = bg
-theme.tabtitle_ebg              = bg
+-- Trusted/untrusted ssl colours
+theme.trust_fg          = "#0F0"
+theme.notrust_fg        = "#F00"
 
-theme.ssl_trusted_fg            = green
-theme.ssl_untrusted_fg          = red
+-- Follow mode hints
+theme.hint_font = "10px monospace, courier, sans-serif"
+theme.hint_fg = "#fff"
+theme.hint_bg = "#000088"
+theme.hint_border = "0px dashed #000"
+theme.hint_opacity = "0.3"
+theme.hint_overlay_bg = "rgba(255,255,153,0.3)"
+theme.hint_overlay_border = "1px dotted #000"
+theme.hint_overlay_selected_bg = "rgba(0,255,0,0.3)"
+theme.hint_overlay_selected_border = theme.hint_overlay_border
 
-theme.tab_ssl_trusted_fg        = green
-theme.tab_ssl_untrusted_fg      = red
+-- General colour pairings
+theme.ok = { fg = "#fff", bg = "#000" }
+theme.warn = { fg = "#F00", bg = "#000" }
+theme.error = { fg = "#FFF", bg = "#F00" }
 
-theme.hint_font                 = "bold 10px monospace"
-theme.hint_fg                   = bg
-theme.hint_bg                   = purple
-theme.hint_bg_opacity           = 0.85
-theme.hint_border               = "1px solid " .. purple
-theme.hint_overlay_bg           = purple
-theme.hint_overlay_border       = "1px solid " .. purple
-theme.hint_overlay_opacity      = 0.3
-theme.hint_overlay_text_bg      = bg
-theme.hint_overlay_text_fg      = fg
-
--- Tab title colors
-theme.tab_fg                    = fg
-theme.tab_bg                    = bg_light
-
-theme.tab_ntheme                = fg
-theme.tab_selected_fg           = fg
-theme.tab_selected_bg           = bg
-
-theme.tab_hover_bg               = bg_light
-
-theme.tab_loading_fg            = cyan
-
--- Trusted/untrusted SSL colors
-theme.trust_fg                  = green
-theme.notrust_fg                = red
-
--- Downloadbar colors
-theme.dbar_error_fg             = red
-
--- Input field colors (bar for :command mode, search, etc.)
-theme.input_fg                  = fg
-theme.input_bg                  = bg
-
--- Completion widget
-theme.completion_fg              = fg
-theme.completion_bg              = bg
-theme.completion_border          = bg_light
-theme.completion_title_fg        = purple
-theme.completion_title_bg        = bg_light
-theme.completion_odd_bg          = bg
-theme.completion_even_bg         = bg
-theme.completion_focus_fg        = fg
-theme.completion_focus_bg        = bg_light
+-- Gopher page style (override defaults)
+theme.gopher_light = { bg = "#000", fg = "#17181C", link = "#03678D" }
+theme.gopher_dark  = { bg = "#000", fg = "#E8E8E8", link = "#f90" }
 
 return theme
+
 -- vim: et:sw=4:ts=8:sts=4:tw=80

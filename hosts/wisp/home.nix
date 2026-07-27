@@ -23,7 +23,7 @@
     ../../modules/cad/freecad
     ../../modules/cad/kicad
 
-    # ../../modules/browsers/luakit
+    ../../modules/browsers/luakit
     ../../modules/browsers/qutebrowser
     ../../modules/browsers/firefox
 

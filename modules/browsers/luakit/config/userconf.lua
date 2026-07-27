@@ -2,3 +2,4 @@
 
 require "modules.settings"
 require "modules.follow"
+require "modules.look"

@@ -47,3 +47,4 @@ rule({
     match           = { class = ".*" },
     suppress_event  = "maximize",
 })
+
