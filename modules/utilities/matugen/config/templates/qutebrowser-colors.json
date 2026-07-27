@@ -1,0 +1,22 @@
+{
+  "background":           "{{colors.surface.default.hex}}",
+  "background-alt":       "{{colors.surface_bright.default.hex}}",
+  "background-attention": "{{colors.primary_container.default.hex}}",
+  "border":               "{{colors.surface.default.hex}}",
+  "current-line":         "{{colors.inverse_primary.default.hex}}",
+  "selection":            "{{colors.inverse_primary.default.hex}}",
+  "foreground":           "{{colors.on_surface.default.hex}}",
+  "foreground-alt":       "{{colors.on_surface_variant.default.hex}}",
+  "foreground-attention": "{{colors.on_primary_container.default.hex}}",
+  "comment":              "{{colors.secondary.default.hex}}",
+  "error":                "{{colors.error.default.hex}}",
+  "success":              "{{colors.tertiary.default.hex}}",
+  "primary":              "{{colors.primary.default.hex}}",
+  "prompts":              "{{colors.primary.default.hex}}",
+  "caret-fg":             "{{colors.on_secondary_container.default.hex}}",
+  "caret-bg":             "{{colors.secondary_container.default.hex}}",
+  "selection-fg":         "{{colors.on_tertiary_container.default.hex}}",
+  "selection-bg":         "{{colors.tertiary_container.default.hex}}",
+  "passthrough-fg":       "{{colors.tertiary_fixed.default.hex}}",
+  "passthrough-bg":       "{{colors.on_tertiary_fixed.default.hex}}"
+}

@@ -6,7 +6,7 @@ in
 {
   home.packages = [ pkgs.matugen ];
 
-  # SYmlink config files
+  # Symlink config files
   xdg.configFile."matugen" = {
     source = link "config";
     recursive = true;

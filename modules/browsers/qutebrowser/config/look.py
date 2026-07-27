@@ -46,7 +46,7 @@ def _apply(mode):
     )
 
 
-HIDDEN_MODES = {usertypes.KeyMode.insert, usertypes.KeyMode.passthrough}
+HIDDEN_MODES = {usertypes.KeyMode.hint, usertypes.KeyMode.insert, usertypes.KeyMode.passthrough}
 
 if not getattr(bar.StatusBar.maybe_hide, "_hide_insert_patched", False):
     _orig_maybe_hide = bar.StatusBar.maybe_hide

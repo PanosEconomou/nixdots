@@ -8,3 +8,7 @@ output_path = "~/.local/state/quickshell/colors.json"
 input_path  = "~/.config/matugen/templates/kitty-colors.conf"
 output_path = "~/.config/kitty/current-theme.conf"
 post_hook   = "pkill -USR1 -f kitty"
+
+[ templates.qutebrowser ]
+input_path  = "~/.config/matugen/templates/qutebrowser-colors.json"
+output_path = "~/.local/state/qutebrowser/colors.json"
