@@ -45,23 +45,26 @@ end
 
 window.add_signal("build", function (w)
     w.sbar.ebox.visible = false
+    local current_mode  = "normal"
+
+    local function sync_tablist ()
+        w.tablist.widget.visible = (current_mode ~= "normal")
+    end
+
+    -- luakit re-shows the tablist on tab add/remove/switch/reorder
+    w.tablist:add_signal("updated", sync_tablist)
     w:add_signal("mode-changed", function(_, mode)
-        local style = style_for(mode)
-        local shown = (style ~= nil)
+        current_mode    = mode
+        local style     = style_for(mode)
+        local shown     = (style ~= nil)
         w.ibar.ebox.visible = shown and mode ~= "insert"
         set_border(style and style.bg, shown and config.border_width or 0)
     end)
 end)
 
 modes.get_modes()["insert"].enter = function(w)
-    -- w:set_prompt("-- INSERT --") -- Commented out to hide the status line
     w:set_prompt()
     w:set_input()
     w.view.can_focus = true
     w.view:focus()
 end
--- window.add_signal("init", function (w)
---     local style = style_for(lousy.mode.get(w))
---     local shown = style ~= nil
---     set_border(style and style.bg, shown and config.border_width or 0)
--- end)

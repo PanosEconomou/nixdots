@@ -7,7 +7,9 @@ in
   programs.qutebrowser = {
     enable = true;
     loadAutoconfig = true;
-    extraConfig = "config.source('theme.py')";
+    extraConfig = 
+      "config.source('theme.py')\n"+
+      "config.source('look.py')";
   };
   
   xdg.mimeApps = {
@@ -24,8 +26,9 @@ in
     };
   };
 
-# Symlink the config files
+  # Symlink the config files
   xdg.configFile."qutebrowser/theme.py".source          = link "theme.py";
+  xdg.configFile."qutebrowser/look.py".source           = link "look.py";
   xdg.configFile."qutebrowser/themes".source            = link "themes";
   xdg.configFile."qutebrowser/autoconfig.yml".source    = link "autoconfig.yml";
   xdg.configFile."qutebrowser/bookmarks".source         = link "bookmarks";
