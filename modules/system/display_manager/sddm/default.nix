@@ -6,7 +6,7 @@ let
     themeConfig = {
 
       # Background
-      Background          = "/var/lib/sddm-wallpaper/current.png";
+      Background          = "/var/lib/wallpaper/current.png";
       CropBackground      = "true";
       DimBackground       = "0.0";
 
