@@ -209,7 +209,7 @@ def blood(c, palette, options = {}):
 
     ## Background color of the tab bar.
     ## Type: QtColor
-    c.colors.tabs.bar.bg = "#00000000" #palette['background']
+    c.colors.tabs.bar.bg = palette['background']
 
     ## Background color of unselected even tabs.
     ## Type: QtColor

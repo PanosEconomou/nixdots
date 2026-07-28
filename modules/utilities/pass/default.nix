@@ -27,4 +27,10 @@
       PASSWORD_STORE_GENERATED_LENGTH = "32";
     };
   };
+
+  home.packages = with pkgs; [
+    cryptsetup
+    gptfdisk
+    e2fsprogs
+  ];
 }

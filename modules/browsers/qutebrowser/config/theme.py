@@ -8,7 +8,7 @@ COLORS_FILE = Path.home() / Path(".local/state/qutebrowser/colors.json")
 if COLORS_FILE.is_file():
     colors = loads(COLORS_FILE.read_text())
     themes.live.draw.blood(c, colors, {
-        'spacing': {'vertical': 6, 'horizontal': 8}
+        'spacing': {'vertical': 8, 'horizontal': 8}
     })
 else:
     themes.dracula.draw.blood(c, {

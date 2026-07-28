@@ -19,7 +19,7 @@ BORDER_WIDTH = 8
 # Rounded tabs.  TAB_MARGIN insets the painted shape inside the tab's own rect,
 # which is what creates the gap that makes the rounding visible.
 TAB_RADIUS = 10
-TAB_MARGIN = 2
+TAB_MARGIN = 5
 
 MODE_COLORS = {
     usertypes.KeyMode.insert:      'colors.statusbar.insert.bg',
@@ -313,7 +313,7 @@ def _patched_draw_control(self, element, opt, p, widget=None):
         return
 
     rect = QRectF(opt.rect).adjusted(
-        2*TAB_MARGIN, TAB_MARGIN, -2*TAB_MARGIN, -TAB_MARGIN)
+        TAB_MARGIN, TAB_MARGIN, -TAB_MARGIN, -TAB_MARGIN)
     if rect.width() <= 0 or rect.height() <= 0:
         _tab_orig(self, element, opt, p, widget)
         return
