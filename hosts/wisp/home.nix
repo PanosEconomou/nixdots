@@ -10,6 +10,7 @@
     ../../modules/utilities/kitty
     ../../modules/utilities/shell
     ../../modules/utilities/hyprutils
+    ../../modules/utilities/pass
     ../../modules/utilities/nnn
     ../../modules/utilities/quickshell
     ../../modules/utilities/btop
