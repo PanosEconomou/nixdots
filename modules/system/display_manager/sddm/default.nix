@@ -17,7 +17,7 @@ let
       # Form
       FormPosition        = "center";
       HaveFormBackground  = "true";
-      RoundCornders       = "50";
+      RoundCorners        = "50";
 
       # Typography
       Font                = "Fira Code";
@@ -38,7 +38,10 @@ in
   services.displayManager = {
     sddm = {
       enable = true;
-      wayland.enable = true;
+      wayland = {
+        enable = true;
+        compositor = "kwin";
+      };
       theme = "sddm-astronaut-theme";
       extraPackages = [ sddm-astronaut ];
     };

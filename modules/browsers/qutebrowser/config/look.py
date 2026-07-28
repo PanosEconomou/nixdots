@@ -4,15 +4,22 @@ import weakref
 
 from qutebrowser.keyinput import modeman
 from qutebrowser.utils import usertypes, objreg
-from qutebrowser.qt.core import QProcess, QTimer
+from qutebrowser.qt.core import QProcess, QTimer, QRectF
+from qutebrowser.qt.gui import QPainter, QPainterPath
+from qutebrowser.qt.widgets import QStyle
 from qutebrowser.config import config as qbconfig
-from qutebrowser.mainwindow import mainwindow
+from qutebrowser.mainwindow import mainwindow, tabwidget
 from qutebrowser.mainwindow.statusbar import bar
 
 
 # --------------------------------------------------------------------- config
 
 BORDER_WIDTH = 8
+
+# Rounded tabs.  TAB_MARGIN insets the painted shape inside the tab's own rect,
+# which is what creates the gap that makes the rounding visible.
+TAB_RADIUS = 10
+TAB_MARGIN = 2
 
 MODE_COLORS = {
     usertypes.KeyMode.insert:      'colors.statusbar.insert.bg',
@@ -292,9 +299,62 @@ _patched_mm_init._hypr_orig = _mm_orig
 modeman.ModeManager.__init__ = _patched_mm_init
 
 
+# ---------------------------------------------------------------- rounded tabs
+
+_tab_orig = getattr(tabwidget.TabBarStyle.drawControl, '_hypr_orig',
+                    tabwidget.TabBarStyle.drawControl)
+
+
+def _patched_draw_control(self, element, opt, p, widget=None):
+    # Only the tab *shape* is ours; everything else (label, indicator layout,
+    # close buttons, the CE_TabBarTab dispatch) stays with qutebrowser.
+    if element != QStyle.ControlElement.CE_TabBarTabShape:
+        _tab_orig(self, element, opt, p, widget)
+        return
+
+    rect = QRectF(opt.rect).adjusted(
+        2*TAB_MARGIN, TAB_MARGIN, -2*TAB_MARGIN, -TAB_MARGIN)
+    if rect.width() <= 0 or rect.height() <= 0:
+        _tab_orig(self, element, opt, p, widget)
+        return
+
+    path = QPainterPath()
+    path.addRoundedRect(rect, TAB_RADIUS, TAB_RADIUS)
+
+    p.save()
+    p.setRenderHint(QPainter.RenderHint.Antialiasing, True)
+    # palette.window() is what qutebrowser fills the flat tab with, so all of
+    # colors.tabs.{odd,even,selected}.bg keeps working untouched.
+    p.fillPath(path, opt.palette.window())
+    p.setClipPath(path)  # keeps the indicator inside the rounded corners
+    try:
+        layouts = self._tab_layout(opt)
+        if layouts is not None:
+            self._draw_indicator(layouts, opt, p)
+    except AttributeError:
+        pass  # private API moved; tab still gets its rounded background
+    p.restore()
+
+
+_patched_draw_control._hypr_orig = _tab_orig
+tabwidget.TabBarStyle.drawControl = _patched_draw_control
+
+
+def _repaint_tabs():
+    for win_id in list(objreg.window_registry):
+        mw = _window(win_id)
+        if mw is None:
+            continue
+        try:
+            mw.tabbed_browser.widget.tabBar().update()
+        except AttributeError:
+            pass
+
+
 # ------------------------------------------------------------------ bootstrap
 
 def _bootstrap():
+    _repaint_tabs()
     for win_id in list(objreg.window_registry):
         _refresh_bar(win_id)
         mw = _window(win_id)
