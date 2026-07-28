@@ -5,8 +5,7 @@ local default = {}
 
 default.mod             = "SUPER"
 default.terminal        = "kitty"
-default.fileManager     = "kitty -e bash -c 'source ~/.config/nnn/nnn.sh && exec nnn'"
--- default.menu            = "pkill -USR1 wofi || wofi --show drun"
+default.fileManager     = "kitty -e nnn"
 default.menu            = "qs ipc -c drawer call drawer toggle"
 default.browser         = "qutebrowser"
 default.altBrowser      = "firefox"

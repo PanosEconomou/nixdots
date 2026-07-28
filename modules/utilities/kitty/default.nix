@@ -12,6 +12,12 @@ in
       enable_audio_bell = false;
       disable_ligatures = "never";
       confirm_os_window_close = 0;
+      allow_remote_control = "socket-only";
+      listen_on = "unix:/tmp/kitty";
+      enabled_layouts="splits";
+      window_border_width = "0";
+      window_margin_width = "0";
+      active_border_color = "none";
     };
 
     # Theme management

@@ -3,6 +3,12 @@
   programs.nnn = {
     enable = true;
     enableBashIntegration = true;
+    quitcd = true;
+    options = {
+      a = true;
+      d = false;
+      e = true;
+    };
     plugins = {
       src = "${pkgs.nnn.src}/plugins";
       mappings = {
