@@ -127,7 +127,7 @@ def blood(c, palette, options = {}):
     c.colors.prompts.bg = palette['background']
 
     # ## Border used around UI elements in prompts.
-    c.colors.prompts.border = '1px solid ' + palette['background-alt']
+    c.colors.prompts.border = '1px solid ' + palette['background']
 
     ## Foreground color for prompts.
     c.colors.prompts.fg = palette['prompts']
@@ -266,6 +266,6 @@ def blood(c, palette, options = {}):
 
     ## Tab padding
     c.tabs.padding = padding
-    c.tabs.indicator.width = 1
-    c.tabs.favicons.scale = 1
+    c.tabs.indicator.width = 0
+    c.tabs.favicons.scale = 1.3
 

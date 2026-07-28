@@ -1,8 +1,22 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    clang-tools
+    # Compilers
     gcc
+
+    # Build
+    gnumake
+    cmakeCurses
+    pkg-config
+
+    # Debug 
+    gdb
+
+    # LSP and Format
+    clang-tools
+    neocmakelsp
+    gersemi
+    cmake-format
   ];
 }
 

@@ -78,6 +78,14 @@ return {
                 end,
             })
 
+            vim.lsp.config("neocmake", {
+                init_options = {
+                    format                  = { enable = false },
+                    lint                    = { enable = true },
+                    scan_cmake_in_package   = true,
+                },
+            })
+
             vim.lsp.enable({
                 "texlab",
                 "lua_ls",
@@ -89,6 +97,7 @@ return {
                 "nixd",
                 "julials",
                 "qmlls",
+                "neocmake",
             })
         end,
     },
