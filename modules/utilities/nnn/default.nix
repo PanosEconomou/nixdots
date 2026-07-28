@@ -1,13 +1,33 @@
-{ config, configDir, ... }:
-let
-  repo = "${configDir}/modules/utilities/nnn/config";
-  link = name: config.lib.file.mkOutOfStoreSymlink "${repo}/${name}";
-in
+{ pkgs, ... }:
 {
   programs.nnn = {
     enable = true;
+    enableBashIntegration = true;
+    plugins = {
+      src = "${pkgs.nnn.src}/plugins";
+      mappings = {
+        f = "finder";
+        o = "fzopen";
+        p = "preview-tui";
+        d = "diffs";
+        t = "nmount";
+        v = "imgview";
+        z = "autojump";
+      };
+    };
+
+    extraPackages = with pkgs; [
+      fzf                 # finder, fzopen
+      ffmpegthumbnailer   # preview-tui
+      mediainfo
+      bat
+      eza
+      chafa
+      nsxiv               # imgview
+      delta               # diffs
+      udisks              # nmount
+      zoxide              # autojump
+      tmux
+    ];
   };
-  
-  # Symlink config file 
-  xdg.configFile."nnn/nnn.sh".source = link "nnn.sh";
 }

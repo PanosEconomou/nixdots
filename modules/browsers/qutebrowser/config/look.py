@@ -3,6 +3,10 @@ from qutebrowser.utils import usertypes, objreg
 from qutebrowser.qt.core import QProcess, QTimer
 from qutebrowser.config import config as qbconfig
 from qutebrowser.mainwindow.statusbar import bar
+import os
+
+_TARGET = f"pid:{os.getpid()}"
+
 
 def precompensate(hex_str):
     s = hex_str.lstrip('#')
@@ -20,24 +24,29 @@ def precompensate(hex_str):
 
 BORDER_WIDTH = 8
 MODE_COLORS = {
-    usertypes.KeyMode.insert:      precompensate(c.colors.statusbar.insert.bg),
-    usertypes.KeyMode.command:     precompensate(c.colors.statusbar.command.bg),
-    usertypes.KeyMode.hint:        precompensate(c.colors.hints.bg),
-    usertypes.KeyMode.passthrough: precompensate(c.colors.statusbar.passthrough.bg),
-    usertypes.KeyMode.caret:       precompensate(c.colors.statusbar.caret.bg),
+    usertypes.KeyMode.insert:      'colors.statusbar.insert.bg',
+    usertypes.KeyMode.command:     'colors.statusbar.command.bg',
+    usertypes.KeyMode.hint:        'colors.hints.bg',
+    usertypes.KeyMode.passthrough: 'colors.statusbar.passthrough.bg',
+    usertypes.KeyMode.caret:       'colors.statusbar.caret.bg',
 }
 
-def _set_props(*pairs):
+def _set_props(*pairs, window=_TARGET):
     cmds = " ; ".join(
-        f"dispatch hl.dsp.window.set_prop({{prop=[[{p}]],value={v}}})"
+        f"dispatch hl.dsp.window.set_prop({{prop=[[{p}]],value={v},window=[[{window}]]}})"
         for p, v in pairs
     )
     QProcess.startDetached("hyprctl", ["--batch", cmds])
 
 def _apply(mode):
-    color = MODE_COLORS.get(mode)
-    if color is None:
-        _set_props(("border_size", "0"))
+    color_var = MODE_COLORS.get(mode)
+    if color_var is None:
+        _set_props(("border_size", 0))
+        return
+    try:
+        color = precompensate(qbconfig.instance.get(color_var))
+    except ValueError:
+        _set_props(("border_size", 0))
         return
     _set_props(
         ("active_border_color", f"[[rgb({color})]]"),
@@ -88,3 +97,14 @@ if not getattr(modeman.ModeManager.__init__, "_hypr_patched", False):
 
     _patched_init._hypr_patched = True
     modeman.ModeManager.__init__ = _patched_init
+
+def _bootstrap():
+    for win_id in list(objreg.window_registry):
+        _refresh_bar(win_id)
+        try:
+            mm = modeman.instance(win_id)
+        except modeman.UnavailableError:
+            continue
+        _apply(mm.mode)
+
+QTimer.singleShot(0, _bootstrap)

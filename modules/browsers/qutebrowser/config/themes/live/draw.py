@@ -209,11 +209,11 @@ def blood(c, palette, options = {}):
 
     ## Background color of the tab bar.
     ## Type: QtColor
-    c.colors.tabs.bar.bg = palette['selection']
+    c.colors.tabs.bar.bg = palette['background']
 
     ## Background color of unselected even tabs.
     ## Type: QtColor
-    c.colors.tabs.even.bg = palette['selection']
+    c.colors.tabs.even.bg = palette['background']
 
     ## Foreground color of unselected even tabs.
     ## Type: QtColor
@@ -242,7 +242,7 @@ def blood(c, palette, options = {}):
 
     ## Background color of unselected odd tabs.
     ## Type: QtColor
-    c.colors.tabs.odd.bg = palette['selection']
+    c.colors.tabs.odd.bg = palette['background']
 
     ## Foreground color of unselected odd tabs.
     ## Type: QtColor
@@ -250,7 +250,7 @@ def blood(c, palette, options = {}):
 
     # ## Background color of selected even tabs.
     # ## Type: QtColor
-    c.colors.tabs.selected.even.bg = palette['background']
+    c.colors.tabs.selected.even.bg = palette['selection']
 
     # ## Foreground color of selected even tabs.
     # ## Type: QtColor
@@ -258,7 +258,7 @@ def blood(c, palette, options = {}):
 
     # ## Background color of selected odd tabs.
     # ## Type: QtColor
-    c.colors.tabs.selected.odd.bg = palette['background']
+    c.colors.tabs.selected.odd.bg = palette['selection']
 
     # ## Foreground color of selected odd tabs.
     # ## Type: QtColor

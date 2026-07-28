@@ -12,3 +12,4 @@ post_hook   = "pkill -USR1 -f kitty"
 [ templates.qutebrowser ]
 input_path  = "~/.config/matugen/templates/qutebrowser-colors.json"
 output_path = "~/.local/state/qutebrowser/colors.json"
+post_hook   = "pgrep -f '[q]utebrowser-wrapped' >/dev/null && qutebrowser ':config-source --clear' >/dev/null 2>&1; true"
