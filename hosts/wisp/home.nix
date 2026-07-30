@@ -20,6 +20,7 @@
       wofi.enable               = true;
       matugen.enable            = true;
       cursors.google_dot.enable = true;
+      tldrxiv.enable            = true;
     };
 
     editors = {
