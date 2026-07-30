@@ -1,6 +1,0 @@
-{ ... }:
-{
-  programs.sagemath = {
-    enable = true;
-  };
-}

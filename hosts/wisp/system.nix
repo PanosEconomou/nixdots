@@ -1,20 +1,29 @@
 { ... }:
 {
-  imports = [
-    ../../modules/system/window_manager/hyprland
+  imports = [ ../../modules/system ];
+  pantry.system = {
+    window_manager = {
+      hyprland.enable = true;
+    };
 
-    ../../modules/system/display_manager/sddm
+    display_manager = {
+      sddm.enable = true;
+    };
 
-    ../../modules/system/hardware/bluetooth
-    ../../modules/system/hardware/keyd
-    ../../modules/system/hardware/laptop_power
-    ../../modules/system/hardware/intel_graphics
+    hardware = {
+      bluetooth.enable = true;
+      keyd.enable = true;
+      laptop_power.enable = true;
+      intel_graphics.enable = true;
+    };
 
-    ../../modules/system/utilities/fonts
-    ../../modules/system/utilities/upower
-    ../../modules/system/utilities/wayland_tools
-    ../../modules/system/utilities/qt
-    ../../modules/system/utilities/plymouth
-  ];
+    utilities = {
+      fonts.enable = true;
+      upower.enable = true;
+      wayland_tools.enable = true;
+      qt.enable = true;
+      plymouth.enable = true;
+    };
+
+  };
 }
-

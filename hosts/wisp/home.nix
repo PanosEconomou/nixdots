@@ -1,52 +1,69 @@
 { ... }:
 {
+  imports = [ ../../modules/home ];
+
   home.username = "pano";
   home.homeDirectory = "/home/pano";
   home.stateVersion = "26.05";
   programs.home-manager.enable = true;
 
-  imports = [
-    ../../modules/utilities/git
-    ../../modules/utilities/kitty
-    ../../modules/utilities/shell
-    ../../modules/utilities/hyprutils
-    ../../modules/utilities/pass
-    ../../modules/utilities/nnn
-    ../../modules/utilities/quickshell
-    ../../modules/utilities/btop
-    ../../modules/utilities/wofi
-    ../../modules/utilities/matugen
-    ../../modules/utilities/cursors/google-dot
+  pantry.home = {
+    utilities = {
+      git.enable                = true;
+      kitty.enable              = true;
+      shell.enable              = true;
+      hyprutils.enable          = true;
+      pass.enable               = true;
+      nnn.enable                = true;
+      quickshell.enable         = true;
+      btop.enable               = true;
+      wofi.enable               = true;
+      matugen.enable            = true;
+      cursors.google_dot.enable = true;
+    };
 
-    ../../modules/editors/neovim
-    ../../modules/editors/typora
+    editors = {
+      neovim.enable = true;
+      typora.enable = true;
+    };
 
-    ../../modules/cad/freecad
-    ../../modules/cad/kicad
+    cad = {
+      freecad.enable = true;
+      kicad.enable   = true;
+    };
 
-    ../../modules/browsers/luakit
-    ../../modules/browsers/qutebrowser
-    ../../modules/browsers/firefox
+    browsers = {
+      qutebrowser.enable  = true;
+      qutebrowser.default = true;
+      luakit.enable       = false;
+      firefox.enable      = true;
+    };
 
-    ../../modules/communication/slack
-    ../../modules/communication/signal
+    communication = {
+      slack.enable  = true;
+      signal.enable = true;
+    };
 
-    ../../modules/media/pdf/zathura
-    ../../modules/media/img/swayimg
+    media = {
+      pdf.zathura.enable = true;
+      img.swayimg.enable = true;
+    };
 
-    ../../modules/math/latex
-    ../../modules/math/4ti2
-    ../../modules/math/gap
-    # ../../modules/math/mathematica
+    math = {
+      latex.enable        = true;
+      _4ti2.enable        = true;
+      gap.enable          = true;
+      mathematica.enable  = false;
+    };
 
-    ../../modules/languages/c
-    ../../modules/languages/lua
-    ../../modules/languages/python
-    ../../modules/languages/nix
-    ../../modules/languages/web
-    ../../modules/languages/nix
-    ../../modules/languages/julia
-    ../../modules/languages/js
-  ];
+    languages = {
+      c.enable      = true;
+      lua.enable    = true;
+      python.enable = true;
+      nix.enable    = true;
+      web.enable    = true;
+      julia.enable  = true;
+      js.enable     = true;
+    };
+  };
 }
-

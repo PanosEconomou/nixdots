@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
+  cfg = config.pantry.system.display_manager.sddm;
   username = "pano";
   sddm-astronaut = pkgs.sddm-astronaut.override {
     embeddedTheme = "astronaut";
@@ -33,29 +34,34 @@ let
   };
 in
 {
-  environment.systemPackages = [ sddm-astronaut pkgs.imagemagick];
-
-  services.displayManager = {
-    sddm = {
-      enable = true;
-      wayland = {
-        enable = true;
-        compositor = "kwin";
-      };
-      theme = "sddm-astronaut-theme";
-      extraPackages = [ sddm-astronaut ];
-    };
-
-    autoLogin = {
-      enable = false;
-      user = username;
-    };
-
-    defaultSession = "hyprland-uwsm";
+  options.pantry.system.display_manager.sddm = {
+    enable = lib.mkEnableOption "enable sddm";
   };
 
-  systemd.tmpfiles.rules = [
-    "d /var/lib/wallpaper 0755 ${username} users -"
-  ];
-}
+  config = lib.mkIf cfg.enable {
+    environment.systemPackages = [ sddm-astronaut pkgs.imagemagick];
 
+    services.displayManager = {
+      sddm = {
+        enable = true;
+        wayland = {
+          enable = true;
+          compositor = "kwin";
+        };
+        theme = "sddm-astronaut-theme";
+        extraPackages = [ sddm-astronaut ];
+      };
+
+      autoLogin = {
+        enable = false;
+        user = username;
+      };
+
+      defaultSession = "hyprland-uwsm";
+    };
+
+    systemd.tmpfiles.rules = [
+      "d /var/lib/wallpaper 0755 ${username} users -"
+    ];
+  };
+}

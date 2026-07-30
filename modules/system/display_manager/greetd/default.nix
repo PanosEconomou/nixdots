@@ -1,6 +1,7 @@
-{ pkgs, ... }:
-let 
-  username = "pano";
+{ config, lib, pkgs, ... }:
+let
+  cfg       = config.pantry.system.display_manager.greetd;
+  username  = "pano";
   greetconf = pkgs.writeText "greetd-hyprland.lua" ''
     hl.on("hyprland.start", function()
       hl.dispatch(hl.dsp.exec_cmd("${pkgs.greetd.regreet}/bin/regreet; hyprctl dispatch 'hl.dsp.exit()'"))
@@ -15,25 +16,30 @@ let
     '';
 in
 {
-  services.greetd = {
-    enable = true;
-    settings.default_session = {
-      command = "dbus-run-session start-hyprland -- -c ${greetconf}";
-      user    = username;
-    };
-    # settings.default_session.command = "${config.programs.hyprland.package}/bin/Hyprland --config ${greetconf}";
+  options.pantry.system.display_manager.greetd = {
+    enable = lib.mkEnableOption "enable greetd";
   };
 
-  programs.regreet = {
-    enable = true;
-    settings = {
-      path  = "/var/lib/wallpaper/current.png";
-      fit   = "Cover";
+  config = lib.mkIf cfg.enable {
+    services.greetd = {
+      enable = true;
+      settings.default_session = {
+        command = "dbus-run-session start-hyprland -- -c ${greetconf}";
+        user    = username;
+      };
     };
-  };
 
-  environment.systemPackages = [ pkgs.imagemagick];
-  systemd.tmpfiles.rules = [
-    "d /var/lib/sddm-wallpaper 0755 ${username} users -"
-  ];
+    programs.regreet = {
+      enable = true;
+      settings = {
+        path  = "/var/lib/wallpaper/current.png";
+        fit   = "Cover";
+      };
+    };
+
+    environment.systemPackages = [ pkgs.imagemagick];
+    systemd.tmpfiles.rules = [
+      "d /var/lib/sddm-wallpaper 0755 ${username} users -"
+    ];
+  };
 }
