@@ -23,47 +23,48 @@
     };
 
     editors = {
-      neovim.enable = true;
-      typora.enable = true;
+      neovim.enable             = true;
+      typora.enable             = true;
     };
 
     cad = {
-      freecad.enable = true;
-      kicad.enable   = true;
+      freecad.enable            = true;
+      kicad.enable              = true;
     };
 
     browsers = {
-      qutebrowser.enable  = true;
-      qutebrowser.default = true;
-      luakit.enable       = false;
-      firefox.enable      = true;
+      qutebrowser.enable        = true;
+      qutebrowser.default       = true;
+      luakit.enable             = false;
+      firefox.enable            = true;
     };
 
     communication = {
-      slack.enable  = true;
-      signal.enable = true;
+      slack.enable              = true;
+      signal.enable             = true;
+      discord.enable            = true;
     };
 
     media = {
-      pdf.zathura.enable = true;
-      img.swayimg.enable = true;
+      pdf.zathura.enable        = true;
+      img.swayimg.enable        = true;
     };
 
     math = {
-      latex.enable        = true;
-      _4ti2.enable        = true;
-      gap.enable          = true;
-      mathematica.enable  = false;
+      latex.enable              = true;
+      _4ti2.enable              = true;
+      gap.enable                = true;
+      mathematica.enable        = false;
     };
 
     languages = {
-      c.enable      = true;
-      lua.enable    = true;
-      python.enable = true;
-      nix.enable    = true;
-      web.enable    = true;
-      julia.enable  = true;
-      js.enable     = true;
+      c.enable                  = true;
+      lua.enable                = true;
+      python.enable             = true;
+      nix.enable                = true;
+      web.enable                = true;
+      julia.enable              = true;
+      js.enable                 = true;
     };
   };
 }
