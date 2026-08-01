@@ -24,7 +24,7 @@ in
       clang-tools
       neocmakelsp
       gersemi
-      cmake-format
+      # cmake-format
     ];
   };
 }

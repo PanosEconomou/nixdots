@@ -14,7 +14,7 @@ return {
                 "bash", "lua", "qmljs",
 
                 -- Data
-                "json", "yaml", "toml",
+                "json", "yaml", "toml", "cmake",
 
                 -- Web
                 "html", "css",

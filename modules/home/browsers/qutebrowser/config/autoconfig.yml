@@ -13,8 +13,8 @@ settings:
       normal:
         ',,': download-open ;; download-clear
         <Space>: 'cmd-set-text :'
-        P: :spawn --userscript qute-pass --password-only
-        p: :spawn --userscript qute-pass
+        P: :spawn --userscript qute-pass -d 'wofi --dmenu' --password-only
+        p: :spawn --userscript qute-pass -d 'wofi --dmenu'
   colors.downloads.system.fg:
     global: rgb
   colors.statusbar.caret.bg:
@@ -49,6 +49,7 @@ settings:
     https://accounts.google.com/*: Mozilla/5.0 ({os_info}; rv:135.0) Gecko/20100101
       Firefox/135
   content.javascript.clipboard:
+    https://account.proton.me: access-paste
     https://chatgpt.com: access-paste
     https://claude.ai: access-paste
     https://discord.com: access-paste
@@ -84,6 +85,7 @@ settings:
   content.register_protocol_handler:
     https://calendar.google.com?cid=%25s: true
     https://mail.google.com?extsrc=mailto&url=%25s: true
+    https://mail.proton.me#mailto=%25s: false
   downloads.position:
     global: bottom
   editor.command:

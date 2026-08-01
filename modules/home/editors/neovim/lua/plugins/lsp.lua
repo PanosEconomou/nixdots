@@ -83,9 +83,17 @@ return {
 
             vim.lsp.config("neocmake", {
                 init_options = {
-                    format                = { enable = false },
+                    format                = { enable = true },
                     lint                  = { enable = true },
                     scan_cmake_in_package = true,
+                },
+                capabilities = {
+                    workspace = {
+                        didChangeWatchedFiles = {
+                            dynamicRegistration    = true,
+                            relative_pattern_support = true,
+                        },
+                    },
                 },
             })
 

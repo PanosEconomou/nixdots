@@ -14,8 +14,14 @@ in
       enable = true;
       extraPackages = with pkgs; [ 
         intel-media-driver
+        intel-vaapi-driver
         vpl-gpu-rt
       ];
+    };
+
+    environment = {
+      variables.LIBVA_DRIVER_NAME = "i965";
+      systemPackages = [ pkgs.libva-utils pkgs.intel-gpu-tools ];
     };
   };
 }

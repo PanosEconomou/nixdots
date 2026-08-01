@@ -1,4 +1,4 @@
-{ config, configDir, lib, ... }:
+{ config, configDir, lib, pkgs, ... }:
 let
   cfg = config.pantry.home.browsers.qutebrowser;
   repo = "${configDir}/modules/home/browsers/qutebrowser/config";
@@ -11,6 +11,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = [ pkgs.wofi ];
     programs.qutebrowser = {
       enable = true;
       loadAutoconfig = true;

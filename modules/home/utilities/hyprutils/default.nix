@@ -37,6 +37,6 @@ in
     home.file."Pictures".source = link "pictures";
 
     # Tell Hyprland to use the integrated Graphics 
-    xdg.configFile."uwsm/env".text = "export LIBVA_DRIVER_NAME=iHD";
+    xdg.configFile."uwsm/env".text = "export LIBVA_DRIVER_NAME=i965";
   };
 }
