@@ -36,7 +36,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pano = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ 
+      "wheel" # Enable sudo
+      "input" # Enable access to /dev/input
+    ];
+
     initialPassword = "tour";
     packages = with pkgs; [
       tree

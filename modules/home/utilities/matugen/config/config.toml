@@ -9,6 +9,10 @@ input_path  = "~/.config/matugen/templates/kitty-colors.conf"
 output_path = "~/.config/kitty/current-theme.conf"
 post_hook   = "pkill -USR1 -f kitty"
 
+[ templates.nvim ]
+input_path  = "~/.config/matugen/templates/nvim-colors.lua"
+output_path = "~/.cache/matugen/lua/live/colors.lua"
+
 [ templates.qutebrowser ]
 input_path  = "~/.config/matugen/templates/qutebrowser-colors.json"
 output_path = "~/.local/state/qutebrowser/colors.json"

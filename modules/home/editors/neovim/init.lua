@@ -15,3 +15,6 @@ require("config.autocmds")
 
 -- Plugins
 require("config.lazy")
+
+-- Watch for live theme changes
+require("config.theme").start()
