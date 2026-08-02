@@ -24,7 +24,9 @@ alias vsys="vi ~/.nixos/hosts/\$(hostname)/system.nix"
 alias cmodules="cd ~/.nixos/modules"
 alias cnix="cd ~/.nixos"
 alias nsh="nix-shell"
-alias ns="nix-shell"
+alias ns="nsh"
+alias ndev="nix develop"
+alias nd="ndev"
 
 # A collection of functions that act as aliases
 function t() {
