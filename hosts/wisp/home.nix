@@ -21,6 +21,7 @@
       matugen.enable            = true;
       cursors.google_dot.enable = true;
       tldrxiv.enable            = true;
+      espanso.enable            = false;
     };
 
     editors = {

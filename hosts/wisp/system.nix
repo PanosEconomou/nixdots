@@ -15,6 +15,7 @@
       keyd.enable = true;
       laptop_power.enable = true;
       intel_graphics.enable = true;
+      printing.enable = true;
     };
 
     utilities = {
