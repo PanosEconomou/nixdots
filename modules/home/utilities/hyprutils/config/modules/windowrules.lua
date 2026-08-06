@@ -35,6 +35,12 @@ rule({
     opacity         = 0.9,
 })
 
+-- Make qutebrowser transparent
+rule({
+    match           = { class = "org.qutebrowser.qutebrowser" },
+    opacity         = 0.92,
+})
+
 -- Make marktext transparent and titleless 
 rule({
     match           = { class = "marktext" },

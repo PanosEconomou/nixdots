@@ -57,7 +57,11 @@
       latex.enable              = true;
       _4ti2.enable              = true;
       gap.enable                = true;
-      mathematica.enable        = false;
+      mathematica = {
+        enable  = true;
+        version = "15.0.1";
+        hash    = "sha256-7N5FJoj0gTGNwY3Q+8hJGZi+ze6IRRMnwu6nLEv3cF4=";
+      };
     };
 
     languages = {
