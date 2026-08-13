@@ -79,6 +79,10 @@ ShellRoot {
     
                 Clock {
                   Button {
+                    glyph: "\udb83\ude7b" 
+                    action: () => run("kitty --hold tldrxiv & disown")
+                  }
+                  Button {
                     glyph: "\uf293"
                     action: () => run("overskride")
                   }
