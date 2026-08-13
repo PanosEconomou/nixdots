@@ -5,7 +5,7 @@ Rectangle {
   id: bar
   
   // Define properties that can be edited from the outside
-  width:                        40
+  width:                        35
   radius:                       width/2
   property color base:          Colors.c.background
   color:                        Qt.rgba(base.r, base.g, base.b, 0.80)
@@ -21,7 +21,7 @@ Rectangle {
   property int glyphweight:     600
   property int pixelsize:       18
   property int textsize:        16
-  property string unitsymbol:   "%"
+  property string unitsymbol:   ""
   property string command:      ""
   
   // Set up command execution

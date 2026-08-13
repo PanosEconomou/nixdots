@@ -8,8 +8,8 @@ Rectangle {
   property var action: function() {}
   property color glyphColor: Colors.c.onPrimaryContainer
 
-  width: 34
-  height: 34
+  width:  31
+  height: 31
   radius: width/2
   color: mousearea.containsMouse ? Colors.c.dimmed : Colors.c.primaryContainer
 
@@ -29,7 +29,7 @@ Rectangle {
   }
 
   property string command: ""
-  function run(cmd) { launcher.command = ["sh", "-c", cmd]; launcher.running = true }
+  function run(cmd) { launcher.command = ["bash", "-c", cmd]; launcher.running = true }
   Process { id: launcher }
 
   Behavior on color {

@@ -18,7 +18,7 @@ ShellRoot {
         top: true
         bottom: true
       }
-      implicitWidth: 50
+      implicitWidth: 40
       margins.left: 8
       color: "transparent"
     

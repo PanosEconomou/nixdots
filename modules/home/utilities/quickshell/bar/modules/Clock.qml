@@ -4,7 +4,7 @@ import QtQuick.Effects
 
 Rectangle {
   id: bar
-  width: 40
+  width: 35 
   radius: width / 2
   clip: true
   default property alias menuItems: revealColumn.data

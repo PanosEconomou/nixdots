@@ -16,6 +16,8 @@ alias la="ls -la"
 alias code="/usr/bin/code --enable-proposed-api ms-toolsai.jupyter"
 alias vi="nvim"
 alias eba="source env/bin/activate"
+alias restart-audio="systemctl --user restart wireplumber.service"
+alias ra="restart-audio"
 
 # Nix specific aliases
 alias renix="sudo nixos-rebuild switch --flake ~/.nixos#\$(hostname)"
