@@ -107,6 +107,7 @@ return {
                 "bashls",
                 "nixd",
                 "julials",
+                "jsonls",
                 "qmlls",
                 "neocmake",
             })
