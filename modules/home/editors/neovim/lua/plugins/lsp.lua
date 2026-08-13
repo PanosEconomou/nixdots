@@ -97,6 +97,22 @@ return {
                 },
             })
 
+            vim.lsp.config("wolfram_ls", {
+                cmd = {
+                    "WolframKernel",
+                    "-noinit", "-noprompt", "-nopaclet", "-noicon", "-nostartuppaclets",
+                    "-run", 'Needs["LSPServer`"];LSPServer`StartServer[]',
+                },
+                filetypes = { "mma" },
+                root_markets = { "PacletInfo.wl", "PacletInfo.m", ".git" },
+                on_init = function(client)
+                    local st = client.server_capabilities.semanticTokensProvider
+                    if type(st) ~= "table" or not st.legend then
+                        client.server_capabilities.semanticTokensProvider = nil
+                    end
+                end,
+            })
+
             vim.lsp.enable({
                 "texlab",
                 "lua_ls",
@@ -110,6 +126,7 @@ return {
                 "jsonls",
                 "qmlls",
                 "neocmake",
+                "wolfram_ls",
             })
         end,
     },
