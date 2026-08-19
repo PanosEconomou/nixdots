@@ -37,8 +37,9 @@
   users.users.pano = {
     isNormalUser = true;
     extraGroups = [ 
-      "wheel" # Enable sudo
-      "input" # Enable access to /dev/input
+      "wheel"     # Enable sudo
+      "input"     # Enable access to /dev/input
+      "dialout"   # Access serial ports
     ];
 
     initialPassword = "tour";

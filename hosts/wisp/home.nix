@@ -22,6 +22,7 @@
       cursors.google_dot.enable = true;
       tldrxiv.enable            = true;
       espanso.enable            = false;
+      qmk.enable                = false;
     };
 
     editors = {
