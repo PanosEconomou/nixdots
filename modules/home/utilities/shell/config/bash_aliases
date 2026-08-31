@@ -1,12 +1,18 @@
 # A collection of aliases
+
+# Directory Shortcuts
 alias notes="cd ~/notes"
 alias shelf="cd ~/shelf"
 alias confs="cd ~/.config"
 alias proj="cd ~/projects"
 alias tri="cd /home/pano/projects/tricritical-ising"
-alias tasks="xdg-open 'https://github.com/users/PanosEconomou/projects/3'"
-alias def="cd ~/projects/Defuse/"
+alias cnotes="cd ~/notes"
+alias cshelf="cd ~/shelf"
+alias cproj="cd ~/projects"
+alias cqmnotes="cd ~/projects/qmnotes"
+alias ctri="cd /home/pano/projects/tricritical-ising"
 
+# Functional
 alias rebash="source ~/.bashrc"
 alias battery="upower -i \$(upower -e | grep -i BAT) | grep --color=never -E 'state|to full|to empty|percentage'"
 alias clip="wl-copy"
@@ -20,6 +26,8 @@ alias vi="nvim"
 alias eba="source env/bin/activate"
 alias restart-audio="systemctl --user restart wireplumber.service"
 alias ra="restart-audio"
+alias tasks="xdg-open 'https://github.com/users/PanosEconomou/projects/3'"
+alias valias="nvim ~/.bash_aliases"
 
 # Nix specific aliases
 alias renix="sudo nixos-rebuild switch --flake ~/.nixos#\$(hostname)"
