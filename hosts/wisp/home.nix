@@ -46,7 +46,7 @@
       slack.enable              = true;
       signal.enable             = true;
       discord.enable            = true;
-      proton.enable             = true;
+      proton.enable             = false;
     };
 
     media = {

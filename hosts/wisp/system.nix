@@ -16,7 +16,7 @@
       qmk.enable            = true;
       laptop_power.enable   = true;
       intel_graphics.enable = true;
-      printing.enable       = false;
+      printing.enable       = true;
     };
 
     utilities = {

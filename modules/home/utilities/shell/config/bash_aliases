@@ -23,12 +23,14 @@ alias ra="restart-audio"
 
 # Nix specific aliases
 alias renix="sudo nixos-rebuild switch --flake ~/.nixos#\$(hostname)"
+alias cleanix="sudo nix-collect-garbage -d && sudo nixos-rebuild boot --flake ~/.nixos#\$(hostname)"
 alias vhome="vi ~/.nixos/hosts/\$(hostname)/home.nix"
 alias vsys="vi ~/.nixos/hosts/\$(hostname)/system.nix"
 alias cmodules="cd ~/.nixos/modules"
 alias cnix="cd ~/.nixos"
 alias nsh="nix-shell"
 alias ns="nsh"
+alias nsp="nix-shell -p"
 alias ndev="nix develop"
 alias nd="ndev"
 
