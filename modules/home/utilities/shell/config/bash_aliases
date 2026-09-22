@@ -47,6 +47,7 @@ function t() {
 	typora --enable-features=UseOzonePlatform --ozone-platform=wayland "$@" &
 	disown
 }
+alias tt="t /tmp/quicknote.md"
 
 function o() {
 	xdg-open "$@" &

@@ -20,6 +20,14 @@ monitor({
     scale       = 1,
 })
 
+-- IAS has really good monitors so they need extra setup.
+monitor({
+    output      = "desc:LG Electronics LG UltraFine 203NTGYFQ351",
+    mode        = "highres",
+    position    = "0x-2160",
+    scale       = 1,
+})
+
 -- the rest
 monitor({
     output      = "",

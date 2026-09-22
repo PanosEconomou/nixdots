@@ -40,6 +40,7 @@ settings:
     https://app.zoom.us: true
     https://claude.ai: true
   content.geolocation:
+    https://apps.docusign.com: true
     https://www.speedtest.net: false
   content.headers.do_not_track:
     global: false
@@ -59,11 +60,13 @@ settings:
     https://gemini.google.com: access-paste
     https://github.com: access-paste
     https://google.github.io: access-paste
+    https://mail.google.com: access-paste
     https://patorjk.com: access-paste
     https://platform.claude.com: access-paste
     https://wiki.hypr.land: access-paste
     https://www.asciiart.eu: access-paste
   content.media.audio_capture:
+    global: true
     https://app.slack.com: true
     https://app.zoom.us: true
     https://chatgpt.com: true
@@ -81,6 +84,7 @@ settings:
     https://aistudio.google.com: true
     https://app.zoom.us: true
     https://calendar.google.com: false
+    https://meet.google.com: false
     https://www.exchangetuts.com: false
     https://www.netflix.com: false
     https://www.youtube.com: false
