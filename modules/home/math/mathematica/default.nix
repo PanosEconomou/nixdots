@@ -20,7 +20,7 @@ in
     version = lib.mkOption {
       type = lib.types.str;
       default = "15.0.1";
-      description = "Mathematica version. Need not be known to nixpkgs.";
+      description = "Mathematica version";
     };
 
     installer = lib.mkOption {

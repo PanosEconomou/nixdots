@@ -1,6 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
   cfg = config.pantry.home.utilities.pass;
+
+  wayprompt = inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.wayprompt;
 in
 {
   options.pantry.home.utilities.pass = {
@@ -15,7 +17,7 @@ in
     services.gpg-agent = {
       enable = true;
       pinentry = {
-        package = pkgs.wayprompt;
+        package = wayprompt;
         program = "pinentry-wayprompt";
       };
       defaultCacheTtl = 3600; #s
@@ -45,6 +47,7 @@ in
     # Customize wayprompt
     programs.wayprompt = {
       enable = true;
+      package = wayprompt;
       settings = {
         general = {
           font-regular = "FiraCode Nerd Font:size=13";

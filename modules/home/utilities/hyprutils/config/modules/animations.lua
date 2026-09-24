@@ -14,13 +14,13 @@ curve("snap",    { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.0} } })
 -- Quick deceleration for closing/fading
 curve("snapOut", { type = "bezier", points = { {0.25, 1.0}, {0.5, 1.0} } })
 -- Bouncy spring: snappy attack + gentle overshoot
-curve("bounce", { type = "spring", mass = 1, stiffness = 100, dampening = 16 })
+curve("bounce", { type = "spring", mass = 1, stiffness = 500, dampening = 30 })
 -- Softer spring for workspace transitions
-curve("wsSoft", { type = "spring", mass = 1, stiffness = 90,  dampening = 16 })
+curve("wsSoft", { type = "spring", mass = 1, stiffness = 500, dampening = 38})
 
 -- Open: pops in with a lil bounce (popin = scale from center)
 animation({ leaf = "windowsIn",   enabled = true, speed = 4, spring = "bounce", style = "popin 80%" })
--- Close: snaps out fast, no linger
+-- Close: snaps out fast
 animation({ leaf = "windowsOut",  enabled = true, speed = 2, bezier = "snapOut", style = "popin 80%" })
 -- Move/resize: snappy, spring-settled
 animation({ leaf = "windowsMove", enabled = true, speed = 3, spring = "bounce" })

@@ -19,10 +19,12 @@
       btop.enable               = true;
       wofi.enable               = true;
       matugen.enable            = true;
-      cursors.google_dot.enable = true;
+      cursors.google_dot.enable = false;
+      cursors.bibata.enable     = true;
       tldrxiv.enable            = true;
       espanso.enable            = false;
       qmk.enable                = false;
+      unzip.enable              = true;
     };
 
     editors = {

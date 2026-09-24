@@ -17,7 +17,8 @@ default.bar             = "qs ipc -c bar call bar toggle"
 default.printscreen     = 'grim -g "$(slurp -w 0)"'
 default.latexclip       = "~/.config/hypr/scripts/latexclip.sh"
 default.sunset          = require("scripts.sunset")
-default.cursorTheme     = "GoogleDot-White"
+-- default.cursorTheme     = "GoogleDot-White"
+default.cursorTheme     = "Bibata-Modern-Ice"
 default.cursorSize      = "20"
 
 return default
