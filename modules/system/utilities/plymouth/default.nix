@@ -18,8 +18,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    boot.initrd.systemd.enable = true;
-
     boot.plymouth = {
       enable = true;
       themePackages = [
@@ -31,8 +29,8 @@ in
     };
 
     # Get rid of the linux start text
-    boot.kernelParams = [ "quiet" "splash" ];
+    boot.kernelParams = [ "quiet" "splash" "rd.systemd.show_status=auto" "udev.log_level=3" ];
     boot.consoleLogLevel = 0;
-    boot.initrd.verbose = false;
+    boot.initrd.systemd.emergencyAccess = true;
   };
 }

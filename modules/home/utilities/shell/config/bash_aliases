@@ -28,6 +28,7 @@ alias restart-audio="systemctl --user restart wireplumber.service"
 alias ra="restart-audio"
 alias tasks="xdg-open 'https://github.com/users/PanosEconomou/projects/3'"
 alias valias="nvim ~/.bash_aliases"
+alias nb="[ -e /tmp/scratchpaper.nb ] || echo 'Notebook[{}]' > /tmp/scratchpaper.nb; xdg-open /tmp/scratchpaper.nb"
 
 # Nix specific aliases
 alias renix="sudo nixos-rebuild switch --flake ~/.nixos#\$(hostname)"

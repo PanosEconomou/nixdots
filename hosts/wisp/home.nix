@@ -25,6 +25,7 @@
       espanso.enable            = false;
       qmk.enable                = false;
       unzip.enable              = true;
+      stk.enable                = true;
     };
 
     editors = {
